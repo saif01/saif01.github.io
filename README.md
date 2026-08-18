@@ -170,12 +170,20 @@ saif01.github.io/
 
 ### GitHub Pages
 
-This repository is configured for GitHub Pages deployment:
+Making the repository **public is not enough**. GitHub Pages must be turned on, or `https://saif01.github.io` will 404.
 
-1. Push code to the `main` branch
-2. Go to repository Settings → Pages
-3. Select source branch (usually `main`)
-4. Your site will be live at `https://saif01.github.io`
+This repo uses the **`master`** branch (not `main`).
+
+1. Push your latest commits to `master`
+2. Open **[Settings → Pages](https://github.com/saif01/saif01.github.io/settings/pages)**
+3. Under **Build and deployment**:
+   - **Source:** Deploy from a branch
+   - **Branch:** `master`
+   - **Folder:** `/ (root)`
+4. Click **Save**
+5. Wait 1–2 minutes. The site is live at `https://saif01.github.io`
+
+A `.nojekyll` file in the repo root tells GitHub to serve the HTML as-is (skip Jekyll).
 
 ### Other Hosting Options
 

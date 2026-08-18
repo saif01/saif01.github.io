@@ -64,15 +64,28 @@
         <div class="row align-items-center">
           <div class="col-lg-7" data-aos="fade-right">
             <p class="eyebrow">Lead Engineer - CPB-IT Platform Gateway</p>
-            <h1 class="hero-title">Owning <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a>, the central nervous system for CP Bangladesh operations.</h1>
-            <p class="lead">From unified authentication and QR-driven access control to biometric attendance automation and
+            <h1 class="hero-title">Owning <a href="https://it.cpbangladesh.com" target="_blank"
+                class="text-reset font-weight-bold">cpbit</a>, the central nervous system for CP Bangladesh operations.
+            </h1>
+            <p class="lead">From unified authentication and QR-driven access control to biometric attendance automation
+              and
               mobile app services, I serve as the architect behind the Platform Gateway (PG) stack described in the
-              <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a> platform. It blends Laravel 12, Vue 3 and Sanctum-secured APIs to orchestrate the entire
-              enterprise.</p>
+              <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit</a>
+              platform. It blends Laravel 12, Vue 3 and Sanctum-secured APIs to orchestrate the entire
+              enterprise.
+            </p>
             <ul class="feature-list">
-              <li>Role-aware dashboards (Admin, Super Admin, Mobile, iAccess)</li>
-              <li>Attendance sync jobs, COM-port readers and Gemini-powered automations</li>
-              <li>SMS/Telegram notification pipelines plus document & hardware catalogues</li>
+              <li>Unified Authentication & RBAC with Active Directory/LDAP, Sanctum sessions, and multi-factor
+                authentication</li>
+              <li>Operations dashboards with personalized landing pages, KPI cards, and role-aware navigation</li>
+              <li>Biometric attendance automation with COM-port readers, data warehousing, and multiple sync schedules
+              </li>
+              <li>Mobile app services with REST APIs, OTA version control, and APK management</li>
+              <li>QR & Badge Management with dynamic generation, access control, and integrated reporting</li>
+              <li>iAccess & Ticketing with service requests, workflow routing, and multi-level approval processes</li>
+              <li>Notification pipelines: GP CMP SMS, Telegram broadcasts, and configurable email templates</li>
+              <li>Document & Hardware Catalogues with inventory management and asset tracking</li>
+              <li>AI & Chatbot Services with Gemini/OpenAI integration and document indexing</li>
             </ul>
             <div class="hero-cta">
               <a class="btn btn-success btn-pill" href="#flagship">Study the gateway</a>
@@ -115,35 +128,64 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="flagship-highlight" data-aos="fade-right">
-              <p class="eyebrow"><a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a></p>
+              <p class="eyebrow"><a href="https://it.cpbangladesh.com" target="_blank"
+                  class="text-reset font-weight-bold">cpbit</a></p>
               <h2>Platform Gateway (PG) - the single pane of glass for CP Bangladesh.</h2>
-              <p>This platform overview highlights that consolidates access management, attendance automation, QR initiatives,
-                mobile app services, documentation hubs and notification pipelines. I lead its roadmap and delivery.</p>
+              <p>CPB-IT Platform Gateway (PG) is the central operations hub for CP Bangladesh. It unifies access
+                management, attendance automation, QR initiatives, mobile applications, and administrative tooling into
+                a single Laravel/Vue stack. The platform blends live dashboards, scheduled data sync jobs, messaging
+                integrations, and hardware touchpoints to keep business units coordinated and informed.</p>
               <ul class="feature-list">
-                <li>Unified authentication, Sanctum sessions and LDAP RBAC</li>
-                <li>Operations dashboards with KPI cards and widget builder</li>
-                <li>Biometric attendance ingestion, COM-port processing and exports</li>
-                <li>Mobile app APIs with OTA version control and content management</li>
-                <li>QR and badge lifecycle management with reporting</li>
-                <li>Notification services: GP CMP SMS, Telegram, email templates</li>
+                <li><strong>Authentication & Authorization:</strong> Active Directory/LDAP sign-in, token-based sessions
+                  (Sanctum), fine-grained role permissions, multi-factor authentication, and configurable session
+                  lifetimes</li>
+                <li><strong>Operations Dashboard:</strong> Personalized landing pages, quick-links, KPI cards,
+                  role-aware navigation, real-time metrics, and customizable widgets</li>
+                <li><strong>Attendance Automation:</strong> Automated synchronization with biometric devices, COM-port
+                  readers, centralized data warehousing, and multiple sync schedules (daily, morning, night, ad-hoc)
+                </li>
+                <li><strong>Mobile App Services:</strong> Comprehensive REST APIs, content management, OTA version
+                  control, and APK management</li>
+                <li><strong>QR & Badge Management:</strong> Dynamic QR code generation, access control, event
+                  registration, scanning integration, and usage reporting</li>
+                <li><strong>iAccess & Ticketing:</strong> Digital service request management, automated workflow
+                  routing, comprehensive audit trails, and multi-level approval processes</li>
+                <li><strong>Notification Pipelines:</strong> GP CMP SMS gateway integration, Telegram broadcasts,
+                  configurable email templates, and multi-channel alerts</li>
+                <li><strong>Document & Hardware Catalogues:</strong> Hardware lifecycle tracking, inventory management,
+                  content management system, and comprehensive asset cataloguing</li>
+                <li><strong>AI & Chatbot Services:</strong> Gemini/OpenAI integration for intelligent assistance,
+                  persistent chat history, and PDF indexing with search capabilities</li>
               </ul>
             </div>
           </div>
           <div class="col-lg-5 ml-lg-auto">
             <div class="panel-card" data-aos="fade-left">
               <p class="panel-label">Architecture snapshot</p>
-              <p><strong>Backend:</strong> Laravel 12, PHP 8.2, Artisan commands for attendance, log consolidation,
-                Gemini/OpenAI services and COM-port integrations.</p>
-              <p><strong>Frontend:</strong> Vue 3 SPA with Vuetify 3, Vue Router, Vuex, Vite and Ziggy driven routing.</p>
-              <p><strong>Reporting:</strong> maatwebsite/excel, barryvdh/laravel-snappy, Spatie PDF tools.</p>
-              <p><strong>Integrations:</strong> LDAPRecord, Google Gemini, OpenAI, Telegram Bot SDK, GP CMP SMS, Oracle via
-                Yajra OCI8.</p>
+              <p><strong>Backend:</strong> Laravel 12.0, PHP 8.2+, Laravel Sanctum 4.1, Laravel UI 4.6, Inertia.js
+                Laravel 2.0, Guzzle 7.9, PostgreSQL/Oracle (via yajra/laravel-oci8 12.0), DataTables 12.3,
+                barryvdh/laravel-snappy 1.0, spatie/pdf-to-text 1.54, intervention/image 3.11, maatwebsite/excel 3.1,
+                simplesoftwareio/simple-qrcode 4.2</p>
+              <p><strong>Frontend:</strong> Vue.js 3.4.27, Vuetify 3.6.12, Vite 6.3.5, Vuex 4.1.0, Vue Router 4.3.2,
+                Axios 1.6.4, vform 2.1.2, Vue Chart.js 5.3.1, Chart.js 4.4.3, @vuepic/vue-datepicker 8.6.0, Vue
+                SweetAlert2 5.0.10, @aacassandra/vue3-progressbar 1.0.3, vue3-editor 0.1.1, @lottiefiles/lottie-player
+                2.0.4, vue3-pdf-app 1.0.3, vue3-qrcode-reader 0.0.1, @uublue/vue-excel-viewer 0.1.17</p>
+              <p><strong>Enterprise Integrations:</strong> directorytree/ldaprecord-laravel 3.4 (LDAP/Active Directory),
+                google-gemini-php/client 2.5 & laravel 2.0 (AI Services), openai-php/laravel 0.15.0 (OpenAI),
+                irazasyed/telegram-bot-sdk 3.15 (Telegram Notifications), tightenco/ziggy 2.4 (Routing),
+                opcodesio/log-viewer 3.17</p>
+              <p><strong>Utilities:</strong> Moment.js 2.30.1, moment-timezone 0.5.45, vue3-autocounter 1.0.6,
+                markdown-it 14.1.0, Bootstrap 5.3.6, @popperjs/core 2.11.8, @fontsource/prompt 5.0.14, @mdi/font 7.4.47,
+                Sass 1.89.0</p>
               <div class="tech-badges">
-                <span class="pill">Laravel 12</span>
-                <span class="pill">Vue 3 + Vuetify</span>
-                <span class="pill">Sanctum</span>
-                <span class="pill">Vite</span>
-                <span class="pill">Docker/Task Scheduler</span>
+                <span class="pill">Laravel 12.0</span>
+                <span class="pill">Vue 3.4.27</span>
+                <span class="pill">Vuetify 3.6.12</span>
+                <span class="pill">Sanctum 4.1</span>
+                <span class="pill">Vite 6.3.5</span>
+                <span class="pill">Inertia.js 2.0</span>
+                <span class="pill">PostgreSQL/Oracle</span>
+                <span class="pill">Task Scheduler</span>
               </div>
             </div>
           </div>
@@ -156,8 +198,10 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <h2>Design systems thinking meets pragmatic engineering.</h2>
-              <p>I treat every project outline as a living contract: understanding domain language, architecture choices and delivery
-              constraints before touching code. That mindset keeps <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a> and parallel modules (crm, inventory,
+            <p>I treat every project outline as a living contract: understanding domain language, architecture choices
+              and delivery
+              constraints before touching code. That mindset keeps <a href="https://it.cpbangladesh.com" target="_blank"
+                class="text-reset font-weight-bold">cpbit</a> and parallel modules (crm, inventory,
               network, room) consistent and maintainable.</p>
             <p>Beyond shipping features, I mentor squads, document release processes, and negotiate scope with business
               leaders so we can keep mission-critical services online.</p>
@@ -210,7 +254,8 @@
           <div class="col-md-3 col-6">
             <div class="stat-card">
               <span>99.95%</span>
-              <p>uptime targets for <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a> modules</p>
+              <p>uptime targets for <a href="https://it.cpbangladesh.com" target="_blank"
+                  class="text-reset font-weight-bold">cpbit</a> modules</p>
             </div>
           </div>
         </div>
@@ -229,7 +274,9 @@
           <div class="col-lg-4">
             <article class="service-card">
               <h3><i class='bx bx-cog'></i> Platform Gateway Leadership</h3>
-              <p>Owning <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a> end-to-end - authentication, QR, attendance automation, mobile app APIs, notification
+              <p>Owning <a href="https://it.cpbangladesh.com" target="_blank"
+                  class="text-reset font-weight-bold">cpbit</a> end-to-end - authentication, QR, attendance automation,
+                mobile app APIs, notification
                 pipelines and AI assistants.</p>
               <ul>
                 <li>Laravel 12 + Vue 3 architecture</li>
@@ -241,7 +288,8 @@
           <div class="col-lg-4">
             <article class="service-card">
               <h3><i class='bx bx-grid'></i> Domain modules</h3>
-              <p>CRM, Inventory, Network, Room Reservation and bdpos_user builds grounded in their project outlines and feature maps.</p>
+              <p>CRM, Inventory, Network, Room Reservation and bdpos_user builds grounded in their project outlines and
+                feature maps.</p>
               <ul>
                 <li>Modular Vue dashboards</li>
                 <li>Oracle/MySQL hybrid data flows</li>
@@ -275,14 +323,25 @@
         <div class="row">
           <div class="col-12" data-aos="fade-up">
             <article class="project-card featured">
-              <div class="project-tag"><a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a></div>
-              <h3>Platform Gateway</h3>
-              <p>Central operations hub aggregating authentication, attendance automation, QR/badge management, iAccess
-                workflows and mobile app services.</p>
+              <div class="project-tag"><a href="https://it.cpbangladesh.com" target="_blank"
+                  class="text-reset font-weight-bold">cpbit</a></div>
+              <h3>Platform Gateway (PG)</h3>
+              <p>Central operations hub for CP Bangladesh that unifies access management, attendance automation, QR
+                initiatives, mobile applications, and administrative tooling into a single Laravel/Vue stack.</p>
               <ul>
-                <li>Laravel 12 API, Vue 3 + Vuetify SPA, Sanctum RBAC, LDAPRecord</li>
-                <li>Artisan jobs for biometric sync, COM-port readers, Gemini-powered assistants</li>
-                <li>Notification stack: GP CMP SMS, Telegram, email templates</li>
+                <li><strong>Core Stack:</strong> Laravel 12.0 API, Vue.js 3.4.27 + Vuetify 3.6.12 SPA, Laravel Sanctum
+                  4.1, Inertia.js 2.0, Vite 6.3.5</li>
+                <li><strong>Authentication:</strong> Active Directory/LDAP integration (LDAPRecord 3.4), token-based
+                  sessions, fine-grained RBAC, multi-factor authentication</li>
+                <li><strong>Automation:</strong> Artisan commands for biometric attendance sync, COM-port readers,
+                  scheduled data ingestion, Gemini/OpenAI AI assistants</li>
+                <li><strong>Services:</strong> Mobile app REST APIs with OTA version control, QR/badge lifecycle
+                  management, iAccess ticketing workflows</li>
+                <li><strong>Integrations:</strong> GP CMP SMS gateway, Telegram Bot SDK 3.15, email templates, document
+                  indexing, hardware catalogues</li>
+                <li><strong>Database:</strong> PostgreSQL/Oracle via yajra/laravel-oci8 12.0, DataTables 12.3</li>
+                <li><strong>Reporting:</strong> maatwebsite/excel 3.1, barryvdh/laravel-snappy 1.0, spatie/pdf-to-text
+                  1.54</li>
               </ul>
             </article>
           </div>
@@ -290,7 +349,8 @@
             <article class="project-card">
               <div class="project-tag">cpbit_crm</div>
               <h3>Customer & Partner Relationship Suite</h3>
-              <p>Project outline: distributor, farmer and competitor data collection with dashboards, visit tracking, and
+              <p>Project outline: distributor, farmer and competitor data collection with dashboards, visit tracking,
+                and
                 performance monitoring.</p>
               <ul>
                 <li>Vue 3 + Vuetify dashboards tied to Laravel 12 APIs</li>
@@ -303,7 +363,8 @@
             <article class="project-card">
               <div class="project-tag">cpbit_inventory</div>
               <h3>Inventory & Warranty Cloud</h3>
-              <p>The outline highlights secure product catalogues, stock operations, expense tracking and localized reporting in
+              <p>The outline highlights secure product catalogues, stock operations, expense tracking and localized
+                reporting in
                 Bangla.</p>
               <ul>
                 <li>Unified product lifecycle with warranty alerts and notifications</li>
@@ -316,7 +377,8 @@
             <article class="project-card">
               <div class="project-tag">bdpos_user</div>
               <h3>Retail POS Experience</h3>
-              <p>From the outline: manage chicken sales flows, handle simultaneous trucks, record weights and synchronize to
+              <p>From the outline: manage chicken sales flows, handle simultaneous trucks, record weights and
+                synchronize to
                 central reporting.</p>
               <ul>
                 <li>Laravel 10 backend, Vue 3 + Vuetify UI, Oracle/MySQL hybrid</li>
@@ -329,7 +391,8 @@
             <article class="project-card">
               <div class="project-tag">cpbit_iticket</div>
               <h3>iTicket & iAccess workflows</h3>
-              <p>The outline describes multi-step hardware and application incident handling, drag-and-drop attachments and
+              <p>The outline describes multi-step hardware and application incident handling, drag-and-drop attachments
+                and
                 approval routing.</p>
               <ul>
                 <li>Hardware/product service flows with 7+ action stages</li>
@@ -355,12 +418,14 @@
           <article>
             <span class="period">2021 - Present</span>
             <h3>Senior Software Engineer - C.P. Bangladesh</h3>
-            <p>Driving <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a> modernization, deploying network/room/inventory modules, and mentoring the digital team.</p>
+            <p>Driving <a href="https://it.cpbangladesh.com" target="_blank"
+                class="text-reset font-weight-bold">cpbit</a> modernization, deploying network/room/inventory modules,
+              and mentoring the digital team.</p>
           </article>
           <article>
             <span class="period">2018 - 2021</span>
             <h3>Software Engineer - Enterprise Digital Team</h3>
-            <p>Delivered cpbit_iticket, cpbit_iservice, cpbit_pg_11, bdpos_user and automation tools.</p>
+            <p>Delivered cpbit_iticket, cpbit_iservice, cpbit_11, bdpos_user and automation tools.</p>
           </article>
           <article>
             <span class="period">2016 - 2018</span>
@@ -382,7 +447,11 @@
           <article>
             <h3>Operations</h3>
             <ul>
-              <li><strong><a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit_pg</a></strong> - Platform gateway, attendance, QR, mobile app APIs</li>
+              <li><strong><a href="https://it.cpbangladesh.com" target="_blank"
+                    class="text-reset font-weight-bold">cpbit</a></strong> - Platform Gateway (PG): Unified
+                authentication (LDAP/Sanctum), operations dashboards, biometric attendance automation, mobile app
+                services, QR/badge management, iAccess ticketing, notification pipelines (SMS/Telegram/Email), document
+                & hardware catalogues, AI & chatbot services (Gemini/OpenAI)</li>
               <li><strong>cpbit_crm</strong> - Distributor/farmer intelligence, visit logging</li>
               <li><strong>cpbit_inventory</strong> - Stock movements, warranty alerts, thermal printing</li>
             </ul>
@@ -469,18 +538,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
