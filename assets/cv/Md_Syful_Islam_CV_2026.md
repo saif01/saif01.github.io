@@ -55,7 +55,7 @@ API design, access control, authentication/authorization, application performanc
 
 ## AI & AUTOMATION LEADERSHIP
 
-### OpenClaw Agent (KYAZZ) - Multi-Agent Telegram AI Platform
+### OpenClaw Agent - Multi-Agent Telegram AI Platform
 **Production AI platform | Docker / Linux VPS / Telegram / Google Workspace / OpenRouter**
 
 - Designed and operate a production multi-agent OpenClaw stack with seven specialized Telegram bots for email, calendar/Drive, electronic-component sourcing, writing, OCR/vision, and read-only ERP Q&A.
@@ -112,9 +112,9 @@ Food-product and franchise platform with dynamic product management, customer co
 
 ## EDUCATION
 
-### Professional Master's in Information Technology
+### Master's in Information Technology
 **Institute of Information Technology (IIT), Jahangirnagar University, Dhaka**  
-Ongoing
+CGPA: 3.60 / 4.00
 
 ### Bachelor of Science in Computer Science
 **North Western University, Khulna**  

@@ -25,7 +25,7 @@ README.md
 2. About
 3. Core Expertise
 4. Experience
-5. AI & Automation (OpenClaw Agent / KYAZZ)
+5. AI & Automation (OpenClaw Agent)
 6. Projects
 7. Skills
 8. Education
@@ -35,10 +35,10 @@ README.md
 
 - Sticky navigation with active section indicator
 - Mobile hamburger menu
-- Light / dark mode (saved in `localStorage`, respects system preference)
+- Light / dark mode (light by default, saved in `localStorage`)
 - Scroll reveal, hero motion, architecture pulse, and animated counters
 - Project hover states and back-to-top control
-- Contact form validation with FormSubmit, falling back to `mailto:`
+- Direct email, phone, LinkedIn, GitHub, and WhatsApp contact options
 - `prefers-reduced-motion` support
 - SEO metadata, Open Graph tags, and Person JSON-LD
 

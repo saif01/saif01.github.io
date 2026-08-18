@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f8fb">
+  <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
 
   <title>Md. Syful Islam | Application Development Manager</title>
@@ -33,14 +33,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/style.css">
   <script>
     (function () {
       try {
         var stored = localStorage.getItem("portfolio-theme");
-        var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        var theme = stored === "dark" ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", theme);
       } catch (e) {}
     })();
@@ -78,6 +78,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pointer-glow" aria-hidden="true"></div>
   <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
     <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
     <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M9 8h.01M9 12h.01M9 16h.01M14 21h6V10h-6"/></symbol>
@@ -113,9 +114,12 @@
   </svg>
 
   <header class="site-header" id="top">
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
     <div class="container header-inner">
       <a class="brand" href="#hero" aria-label="Md. Syful Islam home">
-        <span class="brand-mark" aria-hidden="true">SI</span>
+        <span class="brand-mark" aria-hidden="true">
+          <img class="brand-logo" src="./assets/images/logo.png" alt="" width="300" height="300">
+        </span>
         <span class="brand-copy">
           <span class="brand-name">Md. Syful Islam</span>
           <span class="brand-role">Application Development</span>
@@ -125,11 +129,9 @@
       <nav class="nav" id="site-nav" aria-label="Primary">
         <ul class="nav-list">
           <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#expertise">Expertise</a></li>
           <li><a class="nav-link" href="#experience">Experience</a></li>
           <li><a class="nav-link" href="#ai">AI Platform</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Selected Work</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -160,13 +162,28 @@
   <main id="main">
     <section class="hero" id="hero">
       <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow reveal">Department Manager — Application Development</p>
-          <h1 class="hero-title reveal">Md. Syful Islam</h1>
+          <div class="hero-intro reveal">
+            <p class="eyebrow">Md. Syful Islam</p>
+            <p class="availability"><span aria-hidden="true"></span> Open to leadership conversations</p>
+          </div>
+          <h1 class="hero-title reveal">I lead enterprise software <span>from strategy to production.</span></h1>
           <p class="hero-lead reveal">
-            <strong class="hl">Engineering leadership</strong> for enterprise software, full-stack delivery, and <strong class="hl">production AI automation</strong>.
+            Department Manager — Application Development at C.P. Bangladesh, combining <strong class="hl">engineering leadership</strong>, full-stack delivery, and <strong class="hl">production AI automation</strong>.
           </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#experience">
+              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg>
+              Explore my impact
+            </a>
+            <a class="btn btn-secondary" href="./assets/documents/cv.pdf" download>
+              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg>
+              Download CV
+            </a>
+          </div>
           <ul class="hero-pills reveal" aria-label="Focus areas">
             <li>
               <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-users"/></svg>
@@ -174,23 +191,13 @@
             </li>
             <li>
               <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-building"/></svg>
-              Enterprise Software
+              Enterprise Systems
             </li>
             <li>
               <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-spark"/></svg>
               AI Automation
             </li>
           </ul>
-          <div class="hero-actions reveal">
-            <a class="btn btn-primary" href="#experience">
-              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg>
-              View Experience
-            </a>
-            <a class="btn btn-secondary" href="./assets/documents/cv.pdf" download>
-              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg>
-              Download CV
-            </a>
-          </div>
           <div class="hero-social reveal" aria-label="Social profiles">
             <a href="https://www.linkedin.com/in/cse-saif01" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.48h4.56V23H.22V8.48zM8.34 8.48h4.37v1.98h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v7.92h-4.56v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V23H8.34V8.48z"/></svg>
@@ -207,10 +214,17 @@
           </div>
         </div>
 
-        <aside class="hero-card reveal" aria-label="Profile snapshot">
+        <aside class="hero-card reveal" aria-label="Profile and impact snapshot" data-tilt>
+          <div class="hero-card-topline">
+            <span>Leadership profile</span>
+            <span class="live-dot">Dhaka, Bangladesh</span>
+          </div>
           <div class="portrait-wrap">
             <img class="portrait" src="./assets/images/profile.jpg" alt="Professional portrait of Md. Syful Islam" width="420" height="420" fetchpriority="high">
-            <p class="portrait-badge">Available for leadership conversations</p>
+            <div class="portrait-badge">
+              <span>Department Manager</span>
+              <strong>Application Development</strong>
+            </div>
           </div>
           <dl class="stat-row">
             <div>
@@ -226,13 +240,18 @@
               <dd><span data-count="7">7</span></dd>
             </div>
           </dl>
+          <p class="hero-card-foot"><span aria-hidden="true"></span> Building secure systems that move business forward</p>
         </aside>
       </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to About section">
+        <span>Scroll to explore</span>
+        <i aria-hidden="true"></i>
+      </a>
     </section>
 
     <section class="section" id="about">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="01">
           <p class="eyebrow">About</p>
           <h2>Application development leadership for enterprise systems</h2>
         </header>
@@ -281,7 +300,7 @@
 
     <section class="section section-muted" id="expertise">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="02">
           <p class="eyebrow">Core Expertise</p>
           <h2>Where engineering leadership meets delivery</h2>
         </header>
@@ -327,7 +346,7 @@
 
     <section class="section" id="experience">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="03">
           <p class="eyebrow">Experience</p>
           <h2>Leading application development at C.P. Bangladesh</h2>
         </header>
@@ -359,9 +378,9 @@
 
     <section class="section section-muted" id="ai">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="04">
           <p class="eyebrow">AI &amp; Automation</p>
-          <h2><strong class="hl">OpenClaw Agent (KYAZZ)</strong> — Multi-Agent Telegram AI Platform</h2>
+          <h2><strong class="hl">OpenClaw Agent</strong> — Multi-Agent Telegram AI Platform</h2>
           <p class="section-intro">A production stack with <strong class="hl">7 specialized Telegram AI bots</strong> for email, calendar, Drive, sourcing, writing, OCR/vision, and read-only ERP Q&amp;A — operated on Linux with <strong class="hl">Docker Compose</strong>, <strong class="hl">OAuth</strong>, and controlled REST APIs.</p>
         </header>
 
@@ -445,7 +464,7 @@
 
     <section class="section" id="projects">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="05">
           <p class="eyebrow">Projects</p>
           <h2>Selected enterprise platforms</h2>
         </header>
@@ -527,7 +546,7 @@
 
     <section class="section section-muted" id="skills">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="06">
           <p class="eyebrow">Skills</p>
           <h2>A leadership stack with production depth</h2>
         </header>
@@ -646,16 +665,16 @@
 
     <section class="section" id="education">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="07">
           <p class="eyebrow">Education</p>
           <h2>Academic foundation</h2>
         </header>
         <div class="education-grid">
           <article class="edu-card reveal">
             <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-grad"/></svg></span>
-            <p class="edu-status">Ongoing</p>
-            <h3>Professional Master's in Information Technology</h3>
-            <p>Institute of Information Technology (IIT), <strong class="hl">Jahangirnagar University</strong>, Dhaka</p>
+            <p class="edu-status">CGPA <strong class="hl">3.60 / 4.00</strong></p>
+            <h3>Master's in Information Technology</h3>
+            <p><strong>Institute of Information Technology (IIT), Jahangirnagar University, Dhaka</strong></p>
           </article>
           <article class="edu-card reveal">
             <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-grad"/></svg></span>
@@ -669,63 +688,50 @@
 
     <section class="section section-muted" id="contact">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head reveal" data-index="08">
           <p class="eyebrow">Contact</p>
           <h2>Let’s discuss engineering leadership and delivery</h2>
         </header>
-        <div class="contact-grid">
-          <div class="contact-info reveal">
+        <div class="contact-panel reveal">
+          <div class="contact-info">
             <p>Open to conversations about <strong class="hl">Application Development Manager</strong>, Engineering Manager, Technical Lead, and AI automation roles.</p>
-            <ul class="contact-list">
-              <li>
-                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-mail"/></svg></span>
-                <span>Email</span>
-                <a href="mailto:syful.cse.bd@gmail.com">syful.cse.bd@gmail.com</a>
-              </li>
-              <li>
-                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-phone"/></svg></span>
-                <span>Phone</span>
-                <a href="tel:+8801707080401">+88 01707-080401</a>
-              </li>
-              <li>
-                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-users"/></svg></span>
-                <span>LinkedIn</span>
-                <a href="https://www.linkedin.com/in/cse-saif01" target="_blank" rel="noopener noreferrer">linkedin.com/in/cse-saif01</a>
-              </li>
-              <li>
-                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-code"/></svg></span>
-                <span>GitHub / Portfolio</span>
-                <a href="https://github.com/saif01" target="_blank" rel="noopener noreferrer">github.com/saif01</a>
-              </li>
-            </ul>
+            <div class="contact-actions" role="group" aria-label="Direct contact options">
+              <a class="btn btn-primary" href="mailto:syful.cse.bd@gmail.com">
+                <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>
+                Email me
+              </a>
+              <a class="btn btn-secondary" href="tel:+8801707080401">
+                <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>
+                Call directly
+              </a>
+            </div>
+            <div class="contact-promise">
+              <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-check"/></svg></span>
+              <p><strong>Direct, practical conversations.</strong><br>I typically reply within one business day.</p>
+            </div>
           </div>
-          <form class="contact-form reveal" id="contact-form" novalidate>
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required maxlength="80">
-              <p class="field-error" data-error-for="name"></p>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-              <p class="field-error" data-error-for="email"></p>
-            </div>
-            <div class="field">
-              <label for="subject">Subject</label>
-              <input id="subject" name="subject" type="text" required maxlength="120">
-              <p class="field-error" data-error-for="subject"></p>
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required minlength="20" maxlength="2000"></textarea>
-              <p class="field-error" data-error-for="message"></p>
-            </div>
-            <button class="btn btn-primary" type="submit">
-              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-send"/></svg>
-              Send message
-            </button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
+          <ul class="contact-list">
+            <li>
+              <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-mail"/></svg></span>
+              <span>Email</span>
+              <a href="mailto:syful.cse.bd@gmail.com">syful.cse.bd@gmail.com</a>
+            </li>
+            <li>
+              <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-phone"/></svg></span>
+              <span>Phone</span>
+              <a href="tel:+8801707080401">+88 01707-080401</a>
+            </li>
+            <li>
+              <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-users"/></svg></span>
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/cse-saif01" target="_blank" rel="noopener noreferrer">linkedin.com/in/cse-saif01</a>
+            </li>
+            <li>
+              <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-code"/></svg></span>
+              <span>GitHub / Portfolio</span>
+              <a href="https://github.com/saif01" target="_blank" rel="noopener noreferrer">github.com/saif01</a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -738,9 +744,20 @@
     </div>
   </footer>
 
-  <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
+  <div class="floating-actions" role="group" aria-label="Quick actions">
+    <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="whatsapp-button" href="https://wa.me/8801707080401" target="_blank" rel="noopener noreferrer" aria-label="Chat with Md. Syful Islam on WhatsApp at +880 1707-080401">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2a9.84 9.84 0 0 0-8.47 14.84L2 22l5.3-1.53A9.96 9.96 0 1 0 12.04 2Zm0 17.98a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.14.91.94-3.06-.2-.32a7.93 7.93 0 1 1 6.83 3.78Zm4.46-5.96c-.24-.12-1.44-.7-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21a7.3 7.3 0 0 1-1.36-1.68c-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.41.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/>
+      </svg>
+      <span>
+        <small>WhatsApp</small>
+        <strong>+880 1707-080401</strong>
+      </span>
+    </a>
+  </div>
 
   <script src="./assets/js/main.js" defer></script>
 </body>

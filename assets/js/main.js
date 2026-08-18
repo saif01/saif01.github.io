@@ -10,14 +10,14 @@
     backToTop: "[data-back-to-top]",
     reveal: ".reveal",
     counters: "[data-count]",
-    form: "#contact-form",
     year: "#year",
     themeColor: 'meta[name="theme-color"]',
-    sections: "main section[id]"
+    sections: "main section[id]",
+    scrollProgress: "[data-scroll-progress]",
+    tilt: "[data-tilt]"
   };
 
   const THEME_KEY = "portfolio-theme";
-  const EMAIL = "syful.cse.bd@gmail.com";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const qs = (sel, root = document) => root.querySelector(sel);
@@ -26,16 +26,14 @@
   const Theme = {
     getStored() {
       try {
-        return localStorage.getItem(THEME_KEY);
+        const stored = localStorage.getItem(THEME_KEY);
+        return stored === "light" || stored === "dark" ? stored : null;
       } catch {
         return null;
       }
     },
-    preferred() {
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    },
     current() {
-      return document.documentElement.getAttribute("data-theme") || this.preferred();
+      return document.documentElement.getAttribute("data-theme") || "light";
     },
     apply(theme) {
       document.documentElement.setAttribute("data-theme", theme);
@@ -45,7 +43,7 @@
       }
       const meta = qs(SELECTORS.themeColor);
       if (meta) {
-        meta.setAttribute("content", theme === "dark" ? "#0b1220" : "#f6f8fb");
+        meta.setAttribute("content", theme === "dark" ? "#080d16" : "#f4f7fb");
       }
       try {
         localStorage.setItem(THEME_KEY, theme);
@@ -54,7 +52,7 @@
       }
     },
     init() {
-      this.apply(this.getStored() || this.preferred());
+      this.apply(this.getStored() || "light");
       qs(SELECTORS.themeToggle)?.addEventListener("click", () => {
         this.apply(this.current() === "dark" ? "light" : "dark");
       });
@@ -94,6 +92,12 @@
     },
     onScroll() {
       this.header?.classList.toggle("is-scrolled", window.scrollY > 12);
+      const progress = qs(SELECTORS.scrollProgress);
+      if (progress) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const value = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+        progress.style.setProperty("--scroll-progress", value.toFixed(4));
+      }
     },
     observeSections() {
       const links = qsa(SELECTORS.navLinks);
@@ -104,6 +108,8 @@
         links.forEach((link) => {
           const match = link.getAttribute("href") === `#${id}`;
           link.classList.toggle("is-active", match);
+          if (match) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
         });
       };
 
@@ -179,103 +185,38 @@
     }
   };
 
-  const Form = {
+  const PointerEffects = {
     init() {
-      const form = qs(SELECTORS.form);
-      if (!form) return;
-      this.form = form;
-      this.status = qs(".form-status", form);
-      form.addEventListener("submit", (event) => this.onSubmit(event));
-      form.addEventListener("input", (event) => {
-        const field = event.target.closest(".field");
-        if (field?.classList.contains("is-invalid")) this.clearField(field);
-      });
-    },
-    values() {
-      const data = new FormData(this.form);
-      return {
-        name: String(data.get("name") || "").trim(),
-        email: String(data.get("email") || "").trim(),
-        subject: String(data.get("subject") || "").trim(),
-        message: String(data.get("message") || "").trim()
+      if (reducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+      let frame = 0;
+      let pointerX = window.innerWidth * 0.7;
+      let pointerY = window.innerHeight * 0.1;
+      const paintGlow = () => {
+        document.documentElement.style.setProperty("--pointer-x", `${pointerX}px`);
+        document.documentElement.style.setProperty("--pointer-y", `${pointerY}px`);
+        frame = 0;
       };
-    },
-    validate(values) {
-      const errors = {};
-      if (values.name.length < 2) errors.name = "Please enter your name.";
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = "Enter a valid email address.";
-      if (values.subject.length < 3) errors.subject = "Please add a subject.";
-      if (values.message.length < 20) errors.message = "Message should be at least 20 characters.";
-      return errors;
-    },
-    showErrors(errors) {
-      qsa(".field", this.form).forEach((field) => {
-        const input = qs("input, textarea", field);
-        const box = qs(".field-error", field);
-        const message = errors[input?.name] || "";
-        field.classList.toggle("is-invalid", Boolean(message));
-        if (input) input.setAttribute("aria-invalid", message ? "true" : "false");
-        if (box) box.textContent = message;
-      });
-    },
-    clearField(field) {
-      field.classList.remove("is-invalid");
-      const input = qs("input, textarea", field);
-      const box = qs(".field-error", field);
-      input?.setAttribute("aria-invalid", "false");
-      if (box) box.textContent = "";
-    },
-    setStatus(message, type) {
-      if (!this.status) return;
-      this.status.textContent = message;
-      this.status.classList.remove("is-success", "is-error");
-      if (type) this.status.classList.add(`is-${type}`);
-    },
-    mailto(values) {
-      const body = `Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
-      const href = `mailto:${EMAIL}?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = href;
-    },
-    async onSubmit(event) {
-      event.preventDefault();
-      const values = this.values();
-      const errors = this.validate(values);
-      this.showErrors(errors);
-      if (Object.keys(errors).length) {
-        this.setStatus("Please correct the highlighted fields.", "error");
-        qs(".field.is-invalid input, .field.is-invalid textarea", this.form)?.focus();
-        return;
-      }
 
-      const button = qs('button[type="submit"]', this.form);
-      if (button) button.disabled = true;
-      this.setStatus("Sending…");
+      window.addEventListener("pointermove", (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!frame) frame = requestAnimationFrame(paintGlow);
+      }, { passive: true });
 
-      try {
-        const response = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify({
-            name: values.name,
-            email: values.email,
-            _subject: values.subject,
-            message: values.message,
-            _template: "table",
-            _captcha: "false"
-          })
+      qsa(SELECTORS.tilt).forEach((card) => {
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty("--card-rx", `${(-y * 5).toFixed(2)}deg`);
+          card.style.setProperty("--card-ry", `${(x * 6).toFixed(2)}deg`);
         });
-        if (!response.ok) throw new Error("Request failed");
-        this.form.reset();
-        this.setStatus("Message sent. Thank you — I will reply shortly.", "success");
-      } catch {
-        this.mailto(values);
-        this.setStatus("Opening your email client to send the message.", "success");
-      } finally {
-        if (button) button.disabled = false;
-      }
+        card.addEventListener("pointerleave", () => {
+          card.style.setProperty("--card-rx", "0deg");
+          card.style.setProperty("--card-ry", "0deg");
+        });
+      });
     }
   };
 
@@ -303,7 +244,7 @@
   Nav.init();
   Reveal.init();
   Counters.init();
-  Form.init();
+  PointerEffects.init();
   BackToTop.init();
   Footer.init();
 })();

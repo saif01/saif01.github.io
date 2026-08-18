@@ -1,0 +1,120 @@
+{
+  "communities": {
+    "0": [
+      "assets_js_main_apply",
+      "assets_js_main_clearfield",
+      "assets_js_main_getstored",
+      "assets_js_main_init",
+      "assets_js_main_isopen",
+      "assets_js_main_observesections",
+      "assets_js_main_onscroll",
+      "assets_js_main_setopen"
+    ],
+    "1": [
+      "assets_js_main",
+      "assets_js_main_mailto",
+      "assets_js_main_onsubmit",
+      "assets_js_main_setstatus",
+      "assets_js_main_showerrors",
+      "assets_js_main_validate",
+      "assets_js_main_values"
+    ],
+    "2": [
+      "assets_js_main_current",
+      "assets_js_main_preferred"
+    ]
+  },
+  "cohesion": {
+    "0": 0.25,
+    "1": 0.5238095238095238,
+    "2": 1.0
+  },
+  "gods": [
+    {
+      "id": "assets_js_main_init",
+      "label": "init()",
+      "degree": 11
+    },
+    {
+      "id": "assets_js_main_onsubmit",
+      "label": "onSubmit()",
+      "degree": 7
+    },
+    {
+      "id": "assets_js_main_preferred",
+      "label": "preferred()",
+      "degree": 3
+    },
+    {
+      "id": "assets_js_main_current",
+      "label": "current()",
+      "degree": 3
+    },
+    {
+      "id": "assets_js_main_getstored",
+      "label": "getStored()",
+      "degree": 2
+    },
+    {
+      "id": "assets_js_main_apply",
+      "label": "apply()",
+      "degree": 2
+    },
+    {
+      "id": "assets_js_main_isopen",
+      "label": "isOpen()",
+      "degree": 2
+    },
+    {
+      "id": "assets_js_main_setopen",
+      "label": "setOpen()",
+      "degree": 2
+    },
+    {
+      "id": "assets_js_main_onscroll",
+      "label": "onScroll()",
+      "degree": 2
+    },
+    {
+      "id": "assets_js_main_observesections",
+      "label": "observeSections()",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "init()",
+      "target": "preferred()",
+      "source_files": [
+        "assets/js/main.js",
+        "assets/js/main.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 2 → community 0"
+    },
+    {
+      "source": "init()",
+      "target": "onSubmit()",
+      "source_files": [
+        "assets/js/main.js",
+        "assets/js/main.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 0 → community 1"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `init()` connect `Community 0` to `Community 1`, `Community 2`?",
+      "why": "High betweenness centrality (0.183) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `onSubmit()` connect `Community 1` to `Community 0`?",
+      "why": "High betweenness centrality (0.062) - this node is a cross-community bridge."
+    }
+  ]
+}
