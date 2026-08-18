@@ -214,18 +214,72 @@
           </div>
         </div>
 
-        <aside class="hero-card reveal" aria-label="Profile and impact snapshot" data-tilt>
+        <aside class="hero-card reveal" aria-label="Profile and impact snapshot" data-tilt data-career-map>
           <div class="hero-card-topline">
-            <span>Leadership profile</span>
+            <span>Career system / live map</span>
             <span class="live-dot">Dhaka, Bangladesh</span>
           </div>
-          <div class="portrait-wrap">
-            <img class="portrait" src="./assets/images/profile.jpg" alt="Professional portrait of Md. Syful Islam" width="420" height="420" fetchpriority="high">
-            <div class="portrait-badge">
-              <span>Department Manager</span>
-              <strong>Application Development</strong>
+
+          <div class="career-map" aria-hidden="true">
+            <div class="career-map-grid"></div>
+            <div class="career-map-glow"></div>
+
+            <svg class="career-routes" viewBox="0 0 400 400" fill="none" role="presentation">
+              <circle class="career-orbit career-orbit-outer" cx="200" cy="200" r="134" />
+              <circle class="career-orbit career-orbit-inner" cx="200" cy="200" r="92" />
+              <path class="career-route career-route-one" d="M200 200 C157 157 118 123 71 89" />
+              <path class="career-route career-route-two" d="M200 200 C249 158 286 127 333 95" />
+              <path class="career-route career-route-three" d="M200 200 C157 246 118 278 73 318" />
+              <path class="career-route career-route-four" d="M200 200 C249 245 286 276 329 316" />
+              <circle class="career-packet career-packet-one" r="3">
+                <animateMotion dur="4.8s" repeatCount="indefinite" path="M200 200 C157 157 118 123 71 89" />
+              </circle>
+              <circle class="career-packet career-packet-two" r="3">
+                <animateMotion dur="5.4s" begin="-2.1s" repeatCount="indefinite" path="M200 200 C249 158 286 127 333 95" />
+              </circle>
+              <circle class="career-packet career-packet-three" r="3">
+                <animateMotion dur="5.1s" begin="-3.3s" repeatCount="indefinite" path="M200 200 C157 246 118 278 73 318" />
+              </circle>
+              <circle class="career-packet career-packet-four" r="3">
+                <animateMotion dur="5.7s" begin="-1.2s" repeatCount="indefinite" path="M200 200 C249 245 286 276 329 316" />
+              </circle>
+            </svg>
+
+            <div class="career-axis career-axis-x"><span>Strategy</span><span>Delivery</span></div>
+            <div class="career-axis career-axis-y"><span>Leadership</span><span>Engineering</span></div>
+
+            <div class="career-core" data-career-depth="1.25">
+              <div class="career-core-ring"></div>
+              <img class="career-portrait" src="./assets/images/profile.jpg" alt="" width="240" height="240" fetchpriority="high">
+              <span class="career-core-status"><i></i> Leading now</span>
+              <strong>Application<br>Development</strong>
             </div>
+
+            <div class="career-node career-node-portfolio" data-career-depth="0.55">
+              <span class="career-node-index">01</span>
+              <strong>Portfolio</strong>
+              <small>25+ enterprise apps</small>
+            </div>
+            <div class="career-node career-node-skills" data-career-depth="0.8">
+              <span class="career-node-index">02</span>
+              <strong>Skills</strong>
+              <small>.NET · AI · SQL</small>
+            </div>
+            <div class="career-node career-node-work" data-career-depth="0.7">
+              <span class="career-node-index">03</span>
+              <strong>Work</strong>
+              <small>Systems at scale</small>
+            </div>
+            <div class="career-node career-node-experience" data-career-depth="0.95">
+              <span class="career-node-index">04</span>
+              <strong>Experience</strong>
+              <small>8+ years</small>
+            </div>
+
+            <div class="career-map-caption"><span>Enterprise systems</span><i></i><span>Production AI</span></div>
           </div>
+
+          <p class="sr-only">Career map for Md. Syful Islam: 8+ years of experience, 25+ enterprise applications, full-stack and AI engineering skills, and current application development leadership.</p>
           <dl class="stat-row">
             <div>
               <dt>Experience</dt>

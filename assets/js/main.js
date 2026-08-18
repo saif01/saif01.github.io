@@ -14,7 +14,8 @@
     themeColor: 'meta[name="theme-color"]',
     sections: "main section[id]",
     scrollProgress: "[data-scroll-progress]",
-    tilt: "[data-tilt]"
+    tilt: "[data-tilt]",
+    careerMap: "[data-career-map]"
   };
 
   const THEME_KEY = "portfolio-theme";
@@ -220,6 +221,81 @@
     }
   };
 
+  const CareerMap = {
+    init() {
+      const card = qs(SELECTORS.careerMap);
+      if (!card) return;
+      const map = qs(".career-map", card);
+      if (!map) return;
+      const routes = qs(".career-routes", map);
+
+      let settleTimer = 0;
+      let pointerFrame = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+      const layers = qsa("[data-career-depth]", map);
+
+      const pauseSignals = () => routes?.pauseAnimations?.();
+      const playSignals = () => routes?.unpauseAnimations?.();
+      const scheduleSettle = (delay = 11000) => {
+        window.clearTimeout(settleTimer);
+        settleTimer = window.setTimeout(pauseSignals, delay);
+      };
+      const resetDepth = () => {
+        map.style.setProperty("--depth-x", "0px");
+        map.style.setProperty("--depth-y", "0px");
+        layers.forEach((layer) => {
+          layer.style.setProperty("--depth-x", "0px");
+          layer.style.setProperty("--depth-y", "0px");
+        });
+      };
+      const paintDepth = () => {
+        map.style.setProperty("--depth-x", `${(pointerX * 5).toFixed(2)}px`);
+        map.style.setProperty("--depth-y", `${(pointerY * 5).toFixed(2)}px`);
+        layers.forEach((layer) => {
+          const depth = Number(layer.dataset.careerDepth) || 1;
+          layer.style.setProperty("--depth-x", `${(pointerX * depth * 8).toFixed(2)}px`);
+          layer.style.setProperty("--depth-y", `${(pointerY * depth * 8).toFixed(2)}px`);
+        });
+        pointerFrame = 0;
+      };
+
+      if (reducedMotion) {
+        pauseSignals();
+        resetDepth();
+        return;
+      }
+
+      playSignals();
+      scheduleSettle();
+
+      if (window.matchMedia("(pointer: fine)").matches) {
+        map.addEventListener("pointerenter", () => {
+          playSignals();
+          window.clearTimeout(settleTimer);
+        });
+        map.addEventListener("pointermove", (event) => {
+          const rect = map.getBoundingClientRect();
+          pointerX = (event.clientX - rect.left) / rect.width - 0.5;
+          pointerY = (event.clientY - rect.top) / rect.height - 0.5;
+          if (!pointerFrame) pointerFrame = requestAnimationFrame(paintDepth);
+        }, { passive: true });
+        map.addEventListener("pointerleave", () => {
+          resetDepth();
+          scheduleSettle(900);
+        });
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) pauseSignals();
+        else {
+          playSignals();
+          scheduleSettle(4000);
+        }
+      });
+    }
+  };
+
   const BackToTop = {
     init() {
       const button = qs(SELECTORS.backToTop);
@@ -245,6 +321,7 @@
   Reveal.init();
   Counters.init();
   PointerEffects.init();
+  CareerMap.init();
   BackToTop.init();
   Footer.init();
 })();

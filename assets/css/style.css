@@ -772,6 +772,428 @@ h2 .hl,
   font-size: 0.86rem;
 }
 
+.career-map {
+  --depth-x: 0px;
+  --depth-y: 0px;
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1 / 1.04;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--accent) 14%, transparent) 0, transparent 33%),
+    linear-gradient(145deg, color-mix(in srgb, var(--surface) 96%, var(--accent)), var(--bg-muted));
+  perspective: 900px;
+}
+
+.career-map::before,
+.career-map::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.career-map::before {
+  width: 12rem;
+  aspect-ratio: 1;
+  left: -5rem;
+  top: -5rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent);
+  box-shadow: 0 0 5rem color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.career-map::after {
+  width: 9rem;
+  aspect-ratio: 1;
+  right: -4rem;
+  bottom: -4rem;
+  background: color-mix(in srgb, #38bdf8 9%, transparent);
+  filter: blur(1.5rem);
+}
+
+.career-map-grid {
+  position: absolute;
+  z-index: -1;
+  inset: -8%;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 48%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 48%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, #000 0, transparent 72%);
+  transform: translate3d(var(--depth-x), var(--depth-y), -40px) rotateX(58deg) scale(1.25);
+  transform-origin: center 56%;
+  transition: transform 0.45s var(--ease);
+}
+
+.career-map-glow {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 48%;
+  width: 13rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 66%);
+  filter: blur(0.25rem);
+  transform: translate3d(calc(-50% + var(--depth-x)), calc(-50% + var(--depth-y)), 0);
+  transition: transform 0.35s var(--ease);
+}
+
+.career-routes {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.career-orbit {
+  stroke: color-mix(in srgb, var(--accent) 23%, var(--border));
+  stroke-width: 1;
+  stroke-dasharray: 3 8;
+  transform-origin: center;
+  opacity: 0.72;
+}
+
+.career-orbit-inner {
+  stroke-dasharray: 1 7;
+  opacity: 0.5;
+}
+
+.hero-card.is-visible .career-orbit-outer {
+  animation: career-orbit-arrive 1.4s 0.35s var(--ease) both, career-orbit-turn 18s 1.75s linear 1;
+}
+
+.hero-card.is-visible .career-orbit-inner {
+  animation: career-orbit-arrive 1.2s 0.5s var(--ease) both, career-orbit-turn-reverse 16s 1.7s linear 1;
+}
+
+.career-route {
+  stroke: color-mix(in srgb, var(--accent) 62%, var(--border));
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-dasharray: 4 7;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.65;
+}
+
+.hero-card.is-visible .career-route {
+  animation: career-route-arrive 1.15s var(--ease) both;
+}
+
+.hero-card.is-visible .career-route-two { animation-delay: 0.12s; }
+.hero-card.is-visible .career-route-three { animation-delay: 0.22s; }
+.hero-card.is-visible .career-route-four { animation-delay: 0.32s; }
+
+.career-packet {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 72%, transparent));
+  opacity: 0.9;
+}
+
+.career-axis {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.45rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--muted) 70%, transparent);
+  pointer-events: none;
+}
+
+.career-axis-x {
+  left: 0.65rem;
+  right: 0.65rem;
+  top: 49%;
+  border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+.career-axis-x span {
+  transform: translateY(-1.25rem);
+}
+
+.career-axis-y {
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 50%;
+  flex-direction: column;
+  border-left: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+.career-axis-y span {
+  writing-mode: vertical-rl;
+  transform: translateX(0.42rem);
+}
+
+.career-core,
+.career-node {
+  --depth-x: 0px;
+  --depth-y: 0px;
+  transition: translate 0.4s var(--ease-spring), border-color 0.25s ease, box-shadow 0.25s ease;
+  translate: var(--depth-x) var(--depth-y);
+}
+
+.career-core {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  width: 8.6rem;
+  aspect-ratio: 1;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow:
+    0 1rem 3rem rgba(11, 31, 51, 0.16),
+    inset 0 0 0 0.35rem color-mix(in srgb, var(--surface) 84%, transparent),
+    0 0 0 0.45rem color-mix(in srgb, var(--accent) 7%, transparent);
+  backdrop-filter: blur(12px);
+  transform: translate(-50%, -50%);
+}
+
+.career-core-ring {
+  position: absolute;
+  inset: -0.75rem;
+  border: 1px solid transparent;
+  border-top-color: var(--accent);
+  border-right-color: color-mix(in srgb, #38bdf8 60%, transparent);
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+.hero-card.is-visible .career-core-ring {
+  animation: career-core-scan 3.6s 0.7s var(--ease) 2;
+}
+
+.career-portrait {
+  width: 3.45rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 16%;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 38%, var(--border));
+}
+
+.career-core-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-top: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.47rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.career-core-status i {
+  width: 0.32rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 0.2rem rgba(22, 163, 74, 0.12);
+}
+
+.career-core strong {
+  margin-top: 0.2rem;
+  font-size: 0.66rem;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--navy);
+}
+
+.career-node {
+  position: absolute;
+  z-index: 3;
+  width: 7.2rem;
+  min-height: 3.7rem;
+  display: grid;
+  align-content: center;
+  padding: 0.55rem 0.6rem 0.55rem 1.55rem;
+  border: 1px solid color-mix(in srgb, var(--border) 84%, transparent);
+  border-radius: 0.72rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 0 0.55rem 1.5rem rgba(11, 31, 51, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.career-node::before {
+  content: "";
+  position: absolute;
+  left: 0.58rem;
+  top: 50%;
+  width: 0.45rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 25%, var(--surface));
+  box-shadow: 0 0 0 0.28rem color-mix(in srgb, var(--accent) 9%, transparent);
+  transform: translateY(-50%);
+}
+
+.career-node::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: inherit;
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.hero-card.is-visible .career-node::after {
+  animation: career-node-ping 3.2s var(--node-delay, 0s) ease-out 2;
+}
+
+.career-node-index {
+  position: absolute;
+  left: 0.45rem;
+  top: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.43rem;
+  color: var(--accent);
+}
+
+.career-node strong {
+  font-size: 0.68rem;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.career-node small {
+  margin-top: 0.14rem;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 0.47rem;
+  line-height: 1.35;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.career-node:hover {
+  border-color: color-mix(in srgb, var(--accent) 52%, var(--border));
+  box-shadow: 0 0.8rem 2rem rgba(11, 31, 51, 0.13);
+}
+
+.career-node-portfolio {
+  --node-delay: 1.15s;
+  left: 0.65rem;
+  top: 1.25rem;
+}
+
+.career-node-skills {
+  --node-delay: 1.55s;
+  right: 0.65rem;
+  top: 1.55rem;
+}
+
+.career-node-work {
+  --node-delay: 1.95s;
+  left: 0.75rem;
+  bottom: 2.7rem;
+}
+
+.career-node-experience {
+  --node-delay: 2.35s;
+  right: 0.65rem;
+  bottom: 2.55rem;
+}
+
+.hero-card.is-visible .career-node {
+  animation: career-node-arrive 0.8s calc(var(--node-delay) - 0.75s) var(--ease-spring) both;
+}
+
+.career-map-caption {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+  width: max-content;
+  font-family: var(--mono);
+  font-size: 0.45rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transform: translateX(-50%);
+}
+
+.career-map-caption i {
+  width: 1.7rem;
+  height: 1px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.career-map-caption i::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 100%;
+  background: var(--accent);
+  transform: translateX(-110%);
+}
+
+.hero-card.is-visible .career-map-caption i::after {
+  animation: career-caption-scan 2.4s 1.2s var(--ease) 3;
+}
+
+@keyframes career-route-arrive {
+  from { stroke-dashoffset: 120; opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 0.65; }
+}
+
+@keyframes career-orbit-arrive {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 0.72; transform: scale(1); }
+}
+
+@keyframes career-orbit-turn {
+  to { transform: rotate(180deg); }
+}
+
+@keyframes career-orbit-turn-reverse {
+  to { transform: rotate(-180deg); }
+}
+
+@keyframes career-core-scan {
+  0% { transform: rotate(0deg) scale(0.96); opacity: 0; }
+  24% { opacity: 0.8; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.72; }
+}
+
+@keyframes career-node-arrive {
+  from { opacity: 0; scale: 0.86; filter: blur(5px); }
+  to { opacity: 1; scale: 1; filter: blur(0); }
+}
+
+@keyframes career-node-ping {
+  0%, 58% { opacity: 0; transform: scale(0.96); }
+  72% { opacity: 0.55; }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+
+@keyframes career-caption-scan {
+  0% { transform: translateX(-110%); }
+  55%, 100% { transform: translateX(210%); }
+}
+
 .stat-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1728,6 +2150,36 @@ h2 .hl,
   }
 }
 
+@media (max-width: 420px) {
+  .career-core {
+    width: 7.5rem;
+  }
+
+  .career-portrait {
+    width: 3rem;
+  }
+
+  .career-node {
+    width: 6.35rem;
+    min-height: 3.35rem;
+    padding-right: 0.4rem;
+  }
+
+  .career-node-skills,
+  .career-node-experience {
+    right: 0.4rem;
+  }
+
+  .career-node-portfolio,
+  .career-node-work {
+    left: 0.4rem;
+  }
+
+  .career-node small {
+    font-size: 0.43rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1771,5 +2223,9 @@ h2 .hl,
     opacity: 1;
     transform: none;
     animation: none !important;
+  }
+
+  .career-packet {
+    display: none;
   }
 }
