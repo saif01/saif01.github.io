@@ -1,0 +1,16 @@
+*.log
+.DS_Store
+Thumbs.db
+/.idea
+/.vscode
+
+# graphify: only the root graph is tracked; ignore stray nested ones
+/*/graphify-out/
+/**/graphify-out/
+!/graphify-out/
+!/graphify-out/**
+
+# Local/generated graphify artifacts
+/graphify-out/graph.html
+/graphify-out/.graphify_python
+/graphify-out/.graphify_analysis.json

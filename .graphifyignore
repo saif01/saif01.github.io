@@ -1,0 +1,16 @@
+# Third-party and binary assets — keep the graph on site source, not vendor trees
+assets/vendor/
+assets/images/
+assets/img/
+assets/documents/
+*.pdf
+*.docx
+*.ico
+
+# Agent wiring and Graphify output (do not index skills, rules, or cache)
+.claude/
+.agents/
+.cursor/
+.codex/
+.git/
+graphify-out/
