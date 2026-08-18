@@ -1,540 +1,747 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f8fb">
+  <meta name="color-scheme" content="light dark">
 
-  <title>Syful Islam | Full Stack Web Developer</title>
-  <meta name="description"
-    content="Portfolio website for Md. Syful Islam - showcasing Laravel, Vue and enterprise application projects for C.P. Bangladesh and beyond.">
-  <meta name="keywords" content="Laravel Developer, Vue.js, Bangladesh, Full Stack">
+  <title>Md. Syful Islam | Application Development Manager</title>
+  <meta name="description" content="Department Manager — Application Development at C.P. Bangladesh. Engineering leadership, enterprise software, and AI automation. 8+ years leading Laravel, Vue.js, APIs, and production AI platforms.">
+  <meta name="author" content="Md. Syful Islam">
+  <meta name="keywords" content="Application Development Manager, Engineering Manager, Software Development Manager, Technical Lead, AI Automation, Laravel, Vue.js, OpenClaw, C.P. Bangladesh, Md. Syful Islam">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://saif01.github.io/">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/logo/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/logo/favicon-16x16.png">
-  <link rel="manifest" href="./assets/img/logo/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saif01.github.io/">
+  <meta property="og:title" content="Md. Syful Islam | Application Development Manager">
+  <meta property="og:description" content="Engineering leadership, enterprise software, and AI automation. Department Manager — Application Development at C.P. Bangladesh Co. Ltd.">
+  <meta property="og:image" content="https://saif01.github.io/assets/images/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Md. Syful Islam">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Md. Syful Islam | Application Development Manager">
+  <meta name="twitter:description" content="Engineering leadership, enterprise software, and production AI automation.">
+  <meta name="twitter:image" content="https://saif01.github.io/assets/images/og-image.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="./assets/images/site.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("portfolio-theme");
+        var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Md. Syful Islam",
+    "jobTitle": "Department Manager — Application Development",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "C.P. Bangladesh Co. Ltd."
+    },
+    "url": "https://saif01.github.io",
+    "image": "https://saif01.github.io/assets/images/profile.jpg",
+    "email": "mailto:syful.cse.bd@gmail.com",
+    "telephone": "+8801707080401",
+    "sameAs": [
+      "https://www.linkedin.com/in/cse-saif01",
+      "https://github.com/saif01"
+    ],
+    "knowsAbout": [
+      "Engineering Leadership",
+      "Enterprise Application Development",
+      "AI Automation",
+      "Laravel",
+      "Vue.js",
+      "REST APIs",
+      "OpenClaw"
+    ]
+  }
+  </script>
 </head>
-
 <body>
-  <header class="site-header">
-    <nav class="container navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/img/saif/logo.png" alt="Syful Islam" class="brand-mark">
-        <span class="brand-text">Syful Islam</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M9 8h.01M9 12h.01M9 16h.01M14 21h6V10h-6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.9 6.5l2.1 2.1M17 15.4l2.1 2.1M3 12h3M18 12h3M4.9 17.5 7 15.4M17 8.6l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 20V10M12 20V4M16 20v-7M4 20h16"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="6" rx="1.2"/><rect x="3" y="14" width="18" height="6" rx="1.2"/><path d="M7 7h.01M7 17h.01"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 8H5a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h3M16 8h3a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-3M10 12h4M12 13v4a2 2 0 0 0 2 2h0"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-9 9M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+    <symbol id="i-gateway" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="18" height="10" rx="2"/><path d="M7 8V6a5 5 0 0 1 10 0v2M12 13h.01"/></symbol>
+    <symbol id="i-bots" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5M9 5h6M9 13h.01M15 13h.01M8 18v2M16 18v2"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L4 17l3 3 5.1-5.1a4 4 0 0 0 5.6-5.6L16 11l-3-3 1.7-1.7z"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="1.4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.5 5.5l1.4 1.4M17.1 17.1l1.4 1.4M5.5 18.5l1.4-1.4M17.1 6.9l1.4-1.4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.7"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6.5 3.5 9 6.2c.4.4.5 1 .2 1.5L8 10a13 13 0 0 0 6 6l2.3-1.2c.5-.3 1.1-.2 1.5.2l2.7 2.5c.5.5.5 1.3 0 1.8l-1.5 1.5c-.8.8-2 1.1-3.1.6C10.7 20 4 13.3 2.6 8.1c-.5-1.1-.2-2.3.6-3.1L4.7 3.5c.5-.5 1.3-.5 1.8 0z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+    <symbol id="i-grad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-5 9 5-9 5-9-5z"/><path d="M7 11.5v5.2c0 .6 2.2 2.3 5 2.3s5-1.7 5-2.3v-5.2M21 10v6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h5v5M19 5l-8 8M10 6H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M6 8.2v7.6M7.8 17.1 16 13.1M7.8 6.9 16 10.9"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.5 3.1 7.5 7 8.5 3.9-1 7-4 7-8.5V6l-7-3z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 17l9 5 9-5"/></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Md. Syful Islam home">
+        <span class="brand-mark" aria-hidden="true">SI</span>
+        <span class="brand-copy">
+          <span class="brand-name">Md. Syful Islam</span>
+          <span class="brand-role">Application Development</span>
+        </span>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navLinks"
-        aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="icofont-navigation-menu"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navLinks">
-        <ul class="navbar-nav ml-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#flagship">Flagship</a></li>
-          <li class="nav-item"><a class="nav-link" href="#expertise">Expertise</a></li>
-          <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item">
-            <a class="btn btn-outline-light btn-pill" target="_blank"
-              href="https://drive.google.com/file/d/1NWJBXSnvT3Icw6etCqHpP1KLFsmGRoLo/view?usp=sharing">
-              <i class='bx bx-detail mr-1'></i>Resume
-            </a>
-          </li>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#expertise">Expertise</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#ai">AI Platform</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 3v1.5M12 19.5V21M4.93 4.93l1.06 1.06M18.01 18.01l1.06 1.06M3 12h1.5M19.5 12H21M4.93 19.07l1.06-1.06M18.01 5.99l1.06-1.06" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-cv" href="./assets/documents/cv.pdf" download>
+          <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg>
+          Download CV
+        </a>
+        <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+        </button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="hero" class="hero">
+  <main id="main">
+    <section class="hero" id="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Department Manager — Application Development</p>
+          <h1 class="hero-title reveal">Md. Syful Islam</h1>
+          <p class="hero-lead reveal">
+            <strong class="hl">Engineering leadership</strong> for enterprise software, full-stack delivery, and <strong class="hl">production AI automation</strong>.
+          </p>
+          <ul class="hero-pills reveal" aria-label="Focus areas">
+            <li>
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-users"/></svg>
+              Engineering Leadership
+            </li>
+            <li>
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-building"/></svg>
+              Enterprise Software
+            </li>
+            <li>
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-spark"/></svg>
+              AI Automation
+            </li>
+          </ul>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#experience">
+              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg>
+              View Experience
+            </a>
+            <a class="btn btn-secondary" href="./assets/documents/cv.pdf" download>
+              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg>
+              Download CV
+            </a>
+          </div>
+          <div class="hero-social reveal" aria-label="Social profiles">
+            <a href="https://www.linkedin.com/in/cse-saif01" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.48h4.56V23H.22V8.48zM8.34 8.48h4.37v1.98h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v7.92h-4.56v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V23H8.34V8.48z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/saif01" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.79 8.2 11.37.6.11.82-.26.82-.58 0-.28-.01-1.03-.02-2.02-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.21.08 1.85 1.25 1.85 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.77-1.62-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22 0 1.6-.01 2.89-.01 3.28 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a href="mailto:syful.cse.bd@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75z" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Profile snapshot">
+          <div class="portrait-wrap">
+            <img class="portrait" src="./assets/images/profile.jpg" alt="Professional portrait of Md. Syful Islam" width="420" height="420" fetchpriority="high">
+            <p class="portrait-badge">Available for leadership conversations</p>
+          </div>
+          <dl class="stat-row">
+            <div>
+              <dt>Experience</dt>
+              <dd><span data-count="8" data-suffix="+">8+</span> years</dd>
+            </div>
+            <div>
+              <dt>Internal apps</dt>
+              <dd><span data-count="25" data-suffix="+">25+</span></dd>
+            </div>
+            <div>
+              <dt>AI agents</dt>
+              <dd><span data-count="7">7</span></dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7" data-aos="fade-right">
-            <p class="eyebrow">Lead Engineer - CPB-IT Platform Gateway</p>
-            <h1 class="hero-title">Owning <a href="https://it.cpbangladesh.com" target="_blank"
-                class="text-reset font-weight-bold">cpbit</a>, the central nervous system for CP Bangladesh operations.
-            </h1>
-            <p class="lead">From unified authentication and QR-driven access control to biometric attendance automation
-              and
-              mobile app services, I serve as the architect behind the Platform Gateway (PG) stack described in the
-              <a href="https://it.cpbangladesh.com" target="_blank" class="text-reset font-weight-bold">cpbit</a>
-              platform. It blends Laravel 12, Vue 3 and Sanctum-secured APIs to orchestrate the entire
-              enterprise.
+        <header class="section-head reveal">
+          <p class="eyebrow">About</p>
+          <h2>Application development leadership for enterprise systems</h2>
+        </header>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              Department Manager in Application Development with <strong class="hl">8+ years</strong> of experience leading software delivery,
+              full-stack engineering, enterprise integrations, production operations, and technical teams.
             </p>
-            <ul class="feature-list">
-              <li>Unified Authentication & RBAC with Active Directory/LDAP, Sanctum sessions, and multi-factor
-                authentication</li>
-              <li>Operations dashboards with personalized landing pages, KPI cards, and role-aware navigation</li>
-              <li>Biometric attendance automation with COM-port readers, data warehousing, and multiple sync schedules
-              </li>
-              <li>Mobile app services with REST APIs, OTA version control, and APK management</li>
-              <li>QR & Badge Management with dynamic generation, access control, and integrated reporting</li>
-              <li>iAccess & Ticketing with service requests, workflow routing, and multi-level approval processes</li>
-              <li>Notification pipelines: GP CMP SMS, Telegram broadcasts, and configurable email templates</li>
-              <li>Document & Hardware Catalogues with inventory management and asset tracking</li>
-              <li>AI & Chatbot Services with Gemini/OpenAI integration and document indexing</li>
-            </ul>
-            <div class="hero-cta">
-              <a class="btn btn-success btn-pill" href="#flagship">Study the gateway</a>
-              <a class="btn btn-link text-reset" href="portfolio.html">Browse full portfolio</a>
-            </div>
+            <p>
+              I turn business requirements into scalable platforms — setting priorities, shaping architecture,
+              and keeping delivery, security, and operations aligned. The work spans <strong class="hl">Laravel</strong>, <strong class="hl">Vue.js</strong>, <strong class="hl">REST APIs</strong>,
+              MySQL/PostgreSQL, Linux infrastructure, and business-system modernization.
+            </p>
+            <p>
+              Alongside enterprise delivery, I build <strong class="hl">production AI automation</strong>: multi-agent Telegram assistants,
+              Google Workspace integrations, OCR/vision workflows, electronic-component sourcing, and secure
+              ERP question-answering through controlled APIs.
+            </p>
           </div>
-          <div class="col-lg-5" data-aos="fade-left">
-            <div class="hero-panel">
-              <div class="panel-card">
-                <p class="panel-label">PG Scoreboard</p>
-                <ul>
-                  <li>Laravel 12 API + Vue 3 / Vuetify SPA</li>
-                  <li>Active Directory + Sanctum hybrid auth</li>
-                  <li>Background jobs for attendance, QR, iAccess</li>
-                </ul>
-              </div>
-              <div class="panel-card">
-                <p class="panel-label">Platform Impact</p>
-                <div class="stat-pair">
-                  <span>52</span>
-                  <small>project folders shipped (htdocs)</small>
-                </div>
-                <div class="stat-pair">
-                  <span>14</span>
-                  <small>mission-critical modules overseen</small>
-                </div>
-                <div class="stat-pair">
-                  <span>8+</span>
-                  <small>years orchestrating enterprise builds</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="flagship" class="section flagship">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="flagship-highlight" data-aos="fade-right">
-              <p class="eyebrow"><a href="https://it.cpbangladesh.com" target="_blank"
-                  class="text-reset font-weight-bold">cpbit</a></p>
-              <h2>Platform Gateway (PG) - the single pane of glass for CP Bangladesh.</h2>
-              <p>CPB-IT Platform Gateway (PG) is the central operations hub for CP Bangladesh. It unifies access
-                management, attendance automation, QR initiatives, mobile applications, and administrative tooling into
-                a single Laravel/Vue stack. The platform blends live dashboards, scheduled data sync jobs, messaging
-                integrations, and hardware touchpoints to keep business units coordinated and informed.</p>
-              <ul class="feature-list">
-                <li><strong>Authentication & Authorization:</strong> Active Directory/LDAP sign-in, token-based sessions
-                  (Sanctum), fine-grained role permissions, multi-factor authentication, and configurable session
-                  lifetimes</li>
-                <li><strong>Operations Dashboard:</strong> Personalized landing pages, quick-links, KPI cards,
-                  role-aware navigation, real-time metrics, and customizable widgets</li>
-                <li><strong>Attendance Automation:</strong> Automated synchronization with biometric devices, COM-port
-                  readers, centralized data warehousing, and multiple sync schedules (daily, morning, night, ad-hoc)
-                </li>
-                <li><strong>Mobile App Services:</strong> Comprehensive REST APIs, content management, OTA version
-                  control, and APK management</li>
-                <li><strong>QR & Badge Management:</strong> Dynamic QR code generation, access control, event
-                  registration, scanning integration, and usage reporting</li>
-                <li><strong>iAccess & Ticketing:</strong> Digital service request management, automated workflow
-                  routing, comprehensive audit trails, and multi-level approval processes</li>
-                <li><strong>Notification Pipelines:</strong> GP CMP SMS gateway integration, Telegram broadcasts,
-                  configurable email templates, and multi-channel alerts</li>
-                <li><strong>Document & Hardware Catalogues:</strong> Hardware lifecycle tracking, inventory management,
-                  content management system, and comprehensive asset cataloguing</li>
-                <li><strong>AI & Chatbot Services:</strong> Gemini/OpenAI integration for intelligent assistance,
-                  persistent chat history, and PDF indexing with search capabilities</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-5 ml-lg-auto">
-            <div class="panel-card" data-aos="fade-left">
-              <p class="panel-label">Architecture snapshot</p>
-              <p><strong>Backend:</strong> Laravel 12.0, PHP 8.2+, Laravel Sanctum 4.1, Laravel UI 4.6, Inertia.js
-                Laravel 2.0, Guzzle 7.9, PostgreSQL/Oracle (via yajra/laravel-oci8 12.0), DataTables 12.3,
-                barryvdh/laravel-snappy 1.0, spatie/pdf-to-text 1.54, intervention/image 3.11, maatwebsite/excel 3.1,
-                simplesoftwareio/simple-qrcode 4.2</p>
-              <p><strong>Frontend:</strong> Vue.js 3.4.27, Vuetify 3.6.12, Vite 6.3.5, Vuex 4.1.0, Vue Router 4.3.2,
-                Axios 1.6.4, vform 2.1.2, Vue Chart.js 5.3.1, Chart.js 4.4.3, @vuepic/vue-datepicker 8.6.0, Vue
-                SweetAlert2 5.0.10, @aacassandra/vue3-progressbar 1.0.3, vue3-editor 0.1.1, @lottiefiles/lottie-player
-                2.0.4, vue3-pdf-app 1.0.3, vue3-qrcode-reader 0.0.1, @uublue/vue-excel-viewer 0.1.17</p>
-              <p><strong>Enterprise Integrations:</strong> directorytree/ldaprecord-laravel 3.4 (LDAP/Active Directory),
-                google-gemini-php/client 2.5 & laravel 2.0 (AI Services), openai-php/laravel 0.15.0 (OpenAI),
-                irazasyed/telegram-bot-sdk 3.15 (Telegram Notifications), tightenco/ziggy 2.4 (Routing),
-                opcodesio/log-viewer 3.17</p>
-              <p><strong>Utilities:</strong> Moment.js 2.30.1, moment-timezone 0.5.45, vue3-autocounter 1.0.6,
-                markdown-it 14.1.0, Bootstrap 5.3.6, @popperjs/core 2.11.8, @fontsource/prompt 5.0.14, @mdi/font 7.4.47,
-                Sass 1.89.0</p>
-              <div class="tech-badges">
-                <span class="pill">Laravel 12.0</span>
-                <span class="pill">Vue 3.4.27</span>
-                <span class="pill">Vuetify 3.6.12</span>
-                <span class="pill">Sanctum 4.1</span>
-                <span class="pill">Vite 6.3.5</span>
-                <span class="pill">Inertia.js 2.0</span>
-                <span class="pill">PostgreSQL/Oracle</span>
-                <span class="pill">Task Scheduler</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section about">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h2>Design systems thinking meets pragmatic engineering.</h2>
-            <p>I treat every project outline as a living contract: understanding domain language, architecture choices
-              and delivery
-              constraints before touching code. That mindset keeps <a href="https://it.cpbangladesh.com" target="_blank"
-                class="text-reset font-weight-bold">cpbit</a> and parallel modules (crm, inventory,
-              network, room) consistent and maintainable.</p>
-            <p>Beyond shipping features, I mentor squads, document release processes, and negotiate scope with business
-              leaders so we can keep mission-critical services online.</p>
-          </div>
-          <div class="col-lg-5 ml-lg-auto">
-            <div class="info-grid">
-              <article>
-                <h3>Product mindset</h3>
-                <p>Translate project outlines into measurable KPIs.</p>
-              </article>
-              <article>
-                <h3>System architecture</h3>
-                <p>Model bounded contexts, orchestrate queues, and document integration contracts.</p>
-              </article>
-              <article>
-                <h3>Front-end craft</h3>
-                <p>Build Vue/Vuetify SPAs with reusable component libraries and design tokens.</p>
-              </article>
-              <article>
-                <h3>People leadership</h3>
-                <p>Guide squads through ticket grooming, incident response and code reviews.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section stats">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-6">
-            <div class="stat-card">
-              <span>8+</span>
-              <p>years building enterprise Laravel/Vue platforms</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="stat-card">
-              <span>52</span>
-              <p>active project folders in `htdocs`</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="stat-card">
-              <span>6</span>
-              <p>distinct business domains served</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="stat-card">
-              <span>99.95%</span>
-              <p>uptime targets for <a href="https://it.cpbangladesh.com" target="_blank"
-                  class="text-reset font-weight-bold">cpbit</a> modules</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="expertise" class="section expertise">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Services</p>
-          <h2>How project outlines turn into shipped features</h2>
-          <p>Every module's outline doubles as a contract: what the business needs, the stack we selected, and the
-            integration story. I turn it into resilient delivery.</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <article class="service-card">
-              <h3><i class='bx bx-cog'></i> Platform Gateway Leadership</h3>
-              <p>Owning <a href="https://it.cpbangladesh.com" target="_blank"
-                  class="text-reset font-weight-bold">cpbit</a> end-to-end - authentication, QR, attendance automation,
-                mobile app APIs, notification
-                pipelines and AI assistants.</p>
-              <ul>
-                <li>Laravel 12 + Vue 3 architecture</li>
-                <li>Queue & scheduler orchestration</li>
-                <li>Security reviews with LDAP + Sanctum</li>
-              </ul>
+          <div class="about-cards">
+            <article class="info-card reveal">
+              <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-users"/></svg></span>
+              <h3>Application development leadership</h3>
+              <p>Department management, planning, mentoring, code review, and delivery ownership across enterprise initiatives.</p>
             </article>
-          </div>
-          <div class="col-lg-4">
-            <article class="service-card">
-              <h3><i class='bx bx-grid'></i> Domain modules</h3>
-              <p>CRM, Inventory, Network, Room Reservation and bdpos_user builds grounded in their project outlines and
-                feature maps.</p>
-              <ul>
-                <li>Modular Vue dashboards</li>
-                <li>Oracle/MySQL hybrid data flows</li>
-                <li>Export-ready reporting</li>
-              </ul>
+            <article class="info-card reveal">
+              <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-building"/></svg></span>
+              <h3>Enterprise software</h3>
+              <p>Corporate platforms, internal portals, POS, recruitment, and operational systems used across the business.</p>
             </article>
-          </div>
-          <div class="col-lg-4">
-            <article class="service-card">
-              <h3><i class='bx bx-rocket'></i> Delivery stewardship</h3>
-              <p>Mentoring engineers, syncing stakeholders, leading release rituals, and ensuring documentation remains
-                accurate.</p>
-              <ul>
-                <li>Outline grooming & changelogging</li>
-                <li>Incident playbooks and on-call</li>
-                <li>CI/CD, automated testing</li>
-              </ul>
+            <article class="info-card reveal">
+              <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-code"/></svg></span>
+              <h3>Full-stack engineering</h3>
+              <p>Laravel, Vue.js, REST APIs, and relational databases with a focus on maintainability, security, and performance.</p>
+            </article>
+            <article class="info-card reveal">
+              <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-spark"/></svg></span>
+              <h3>AI automation</h3>
+              <p>Production multi-agent systems, tool-using LLMs, OAuth integrations, and human-in-the-loop controls.</p>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="work" class="section work">
+    <section class="section section-muted" id="expertise">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Featured Work</p>
-          <h2>Case studies straight from the project outlines</h2>
-          <p>Each card below distills the objectives, architecture choices, and flagship features for that system.</p>
-        </div>
-        <div class="row">
-          <div class="col-12" data-aos="fade-up">
-            <article class="project-card featured">
-              <div class="project-tag"><a href="https://it.cpbangladesh.com" target="_blank"
-                  class="text-reset font-weight-bold">cpbit</a></div>
-              <h3>Platform Gateway (PG)</h3>
-              <p>Central operations hub for CP Bangladesh that unifies access management, attendance automation, QR
-                initiatives, mobile applications, and administrative tooling into a single Laravel/Vue stack.</p>
-              <ul>
-                <li><strong>Core Stack:</strong> Laravel 12.0 API, Vue.js 3.4.27 + Vuetify 3.6.12 SPA, Laravel Sanctum
-                  4.1, Inertia.js 2.0, Vite 6.3.5</li>
-                <li><strong>Authentication:</strong> Active Directory/LDAP integration (LDAPRecord 3.4), token-based
-                  sessions, fine-grained RBAC, multi-factor authentication</li>
-                <li><strong>Automation:</strong> Artisan commands for biometric attendance sync, COM-port readers,
-                  scheduled data ingestion, Gemini/OpenAI AI assistants</li>
-                <li><strong>Services:</strong> Mobile app REST APIs with OTA version control, QR/badge lifecycle
-                  management, iAccess ticketing workflows</li>
-                <li><strong>Integrations:</strong> GP CMP SMS gateway, Telegram Bot SDK 3.15, email templates, document
-                  indexing, hardware catalogues</li>
-                <li><strong>Database:</strong> PostgreSQL/Oracle via yajra/laravel-oci8 12.0, DataTables 12.3</li>
-                <li><strong>Reporting:</strong> maatwebsite/excel 3.1, barryvdh/laravel-snappy 1.0, spatie/pdf-to-text
-                  1.54</li>
-              </ul>
-            </article>
-          </div>
-          <div class="col-md-6" data-aos="fade-up">
-            <article class="project-card">
-              <div class="project-tag">cpbit_crm</div>
-              <h3>Customer & Partner Relationship Suite</h3>
-              <p>Project outline: distributor, farmer and competitor data collection with dashboards, visit tracking,
-                and
-                performance monitoring.</p>
-              <ul>
-                <li>Vue 3 + Vuetify dashboards tied to Laravel 12 APIs</li>
-                <li>Multi-step check-ins, territory views, exportable sales reports</li>
-                <li>Oracle/Postgres connectivity via Yajra OCI8</li>
-              </ul>
-            </article>
-          </div>
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <article class="project-card">
-              <div class="project-tag">cpbit_inventory</div>
-              <h3>Inventory & Warranty Cloud</h3>
-              <p>The outline highlights secure product catalogues, stock operations, expense tracking and localized
-                reporting in
-                Bangla.</p>
-              <ul>
-                <li>Unified product lifecycle with warranty alerts and notifications</li>
-                <li>Barcode/QR support, ESC/POS thermal printing, scheduled mailers</li>
-                <li>Laravel 10 + Vue 3, maatwebsite/excel, barryvdh/laravel-snappy</li>
-              </ul>
-            </article>
-          </div>
-          <div class="col-md-6" data-aos="fade-up">
-            <article class="project-card">
-              <div class="project-tag">bdpos_user</div>
-              <h3>Retail POS Experience</h3>
-              <p>From the outline: manage chicken sales flows, handle simultaneous trucks, record weights and
-                synchronize to
-                central reporting.</p>
-              <ul>
-                <li>Laravel 10 backend, Vue 3 + Vuetify UI, Oracle/MySQL hybrid</li>
-                <li>Slip printing per weight entry, offline-ready queues</li>
-                <li>Vue charting and SweetAlert-driven UX</li>
-              </ul>
-            </article>
-          </div>
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <article class="project-card">
-              <div class="project-tag">cpbit_iticket</div>
-              <h3>iTicket & iAccess workflows</h3>
-              <p>The outline describes multi-step hardware and application incident handling, drag-and-drop attachments
-                and
-                approval routing.</p>
-              <ul>
-                <li>Hardware/product service flows with 7+ action stages</li>
-                <li>Account/access requests with manager and BU approvals</li>
-                <li>Vue 3 SPA, chart.js, barryvdh/laravel-snappy exports</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-        <div class="text-center mt-4">
-          <a class="btn btn-outline-secondary btn-pill" href="portfolio.html">See complete archive</a>
+        <header class="section-head reveal">
+          <p class="eyebrow">Core Expertise</p>
+          <h2>Where engineering leadership meets delivery</h2>
+        </header>
+        <div class="expertise-grid">
+          <article class="expertise-card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="22" height="22"><use href="#i-chart"/></svg>
+            </span>
+            <h3>Engineering Leadership</h3>
+            <p>Department management, project planning, stakeholder communication, mentoring, code review, and change control.</p>
+          </article>
+          <article class="expertise-card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="22" height="22"><use href="#i-monitor"/></svg>
+            </span>
+            <h3>Enterprise Application Development</h3>
+            <p>Full-stack Laravel and Vue.js systems, API design, database optimization, and production-grade application architecture.</p>
+          </article>
+          <article class="expertise-card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="22" height="22"><use href="#i-spark"/></svg>
+            </span>
+            <h3>AI &amp; Automation</h3>
+            <p>OpenClaw multi-agent platforms, Telegram bots, OpenRouter, OCR/vision, prompt engineering, and controlled tool use.</p>
+          </article>
+          <article class="expertise-card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="22" height="22"><use href="#i-server"/></svg>
+            </span>
+            <h3>DevOps &amp; Infrastructure</h3>
+            <p>Docker Compose, Linux VPS, DNS, SSL/TLS, Git/GitHub, production deployment, and operational runbooks.</p>
+          </article>
+          <article class="expertise-card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="22" height="22"><use href="#i-plug"/></svg>
+            </span>
+            <h3>APIs &amp; Integrations</h3>
+            <p>REST APIs, OAuth, Google Workspace, Maps/GPS, email/SMS gateways, and third-party business-system integrations.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section experience">
+    <section class="section" id="experience">
       <div class="container">
-        <div class="section-heading">
+        <header class="section-head reveal">
           <p class="eyebrow">Experience</p>
-          <h2>Timeline</h2>
+          <h2>Leading application development at C.P. Bangladesh</h2>
+        </header>
+        <article class="experience-card reveal">
+          <div class="experience-meta">
+            <span class="card-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-briefcase"/></svg></span>
+            <p class="experience-org">C.P. Bangladesh Co. Ltd.</p>
+            <p class="experience-role">Department Manager — Application Development</p>
+            <p class="experience-dates">
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-calendar"/></svg>
+              2018 – Present
+              <span aria-hidden="true">·</span>
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-map"/></svg>
+              Bangladesh
+            </p>
+          </div>
+          <ul class="experience-list">
+            <li>Lead the <strong class="hl">Application Development</strong> function, translating business requirements into scalable software and setting priorities across enterprise initiatives.</li>
+            <li>Manage planning, resource allocation, delivery tracking, stakeholder communication, technical risk, and change management.</li>
+            <li>Architect and oversee <strong class="hl">Laravel</strong>, <strong class="hl">Vue.js</strong>, JavaScript, <strong class="hl">REST API</strong>, MySQL, and PostgreSQL applications with emphasis on maintainability, security, and performance.</li>
+            <li>Conduct code reviews, mentor developers, standardize engineering practices, and guide troubleshooting for complex application, integration, database, and deployment issues.</li>
+            <li>Integrate business systems with Google services, mapping/GPS platforms, email/SMS, mobile applications, and third-party APIs.</li>
+            <li>Support production deployments and operational reliability across Linux environments, including DNS, SSL/TLS, access control, monitoring, and documentation.</li>
+            <li>Drive <strong class="hl">AI-assisted workflows</strong> and agent-based automation to improve productivity, information access, and internal service delivery.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="ai">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">AI &amp; Automation</p>
+          <h2><strong class="hl">OpenClaw Agent (KYAZZ)</strong> — Multi-Agent Telegram AI Platform</h2>
+          <p class="section-intro">A production stack with <strong class="hl">7 specialized Telegram AI bots</strong> for email, calendar, Drive, sourcing, writing, OCR/vision, and read-only ERP Q&amp;A — operated on Linux with <strong class="hl">Docker Compose</strong>, <strong class="hl">OAuth</strong>, and controlled REST APIs.</p>
+        </header>
+
+        <div class="architecture reveal" aria-label="Platform architecture">
+          <p class="architecture-label">Architecture</p>
+          <ol class="arch-flow">
+            <li class="arch-node">
+              <span class="arch-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-send"/></svg></span>
+              <span>Telegram</span>
+            </li>
+            <li class="arch-node">
+              <span class="arch-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-gateway"/></svg></span>
+              <span>OpenClaw Gateway</span>
+            </li>
+            <li class="arch-node">
+              <span class="arch-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-bots"/></svg></span>
+              <span>AI Agents</span>
+            </li>
+            <li class="arch-node">
+              <span class="arch-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-tools"/></svg></span>
+              <span>Tools / APIs</span>
+            </li>
+            <li class="arch-node">
+              <span class="arch-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-cpu"/></svg></span>
+              <span>LLM</span>
+            </li>
+          </ol>
+          <p class="sr-only">Telegram to OpenClaw Gateway to AI Agents to Tools and APIs to LLM.</p>
         </div>
-        <div class="timeline">
-          <article>
-            <span class="period">2021 - Present</span>
-            <h3>Senior Software Engineer - C.P. Bangladesh</h3>
-            <p>Driving <a href="https://it.cpbangladesh.com" target="_blank"
-                class="text-reset font-weight-bold">cpbit</a> modernization, deploying network/room/inventory modules,
-              and mentoring the digital team.</p>
+
+        <div class="agent-grid">
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-mail"/></svg></span>
+            <h3>Gmail assistant</h3>
+            <p>Read-first email workflows with draft preview and explicit confirmation before sending.</p>
           </article>
-          <article>
-            <span class="period">2018 - 2021</span>
-            <h3>Software Engineer - Enterprise Digital Team</h3>
-            <p>Delivered cpbit_iticket, cpbit_iservice, cpbit_11, bdpos_user and automation tools.</p>
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-calendar"/></svg></span>
+            <h3>Calendar assistant</h3>
+            <p>Google Calendar scheduling through OAuth-based Workspace tooling and controlled access.</p>
           </article>
-          <article>
-            <span class="period">2016 - 2018</span>
-            <h3>Freelance Product Engineer</h3>
-            <p>Built bespoke agency, restaurant and SaaS experiences sharpened through outlines and project briefs.</p>
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-folder"/></svg></span>
+            <h3>Drive assistant</h3>
+            <p>Document lookup and workspace support with the same OAuth-backed Google Drive integration.</p>
+          </article>
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-search"/></svg></span>
+            <h3>Web sourcing</h3>
+            <p>Approved-site search and mobile-friendly price/stock results for manufacturer part numbers.</p>
+          </article>
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-eye"/></svg></span>
+            <h3>OCR / Vision</h3>
+            <p>Image-to-text extraction with EN↔Bangla use cases and model fallback for reliability.</p>
+          </article>
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-pen"/></svg></span>
+            <h3>Writing / Translation</h3>
+            <p>Reply drafting, rewrites, and translation through a dedicated writing agent.</p>
+          </article>
+          <article class="agent-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-database"/></svg></span>
+            <h3>Read-only ERP Q&amp;A</h3>
+            <p>Stock, RFQs, orders, and invoices via a controlled chatbot API — no direct LLM database access.</p>
+          </article>
+        </div>
+
+        <ul class="tech-row reveal" aria-label="Platform technologies">
+          <li>OpenClaw</li>
+          <li>OpenRouter</li>
+          <li>Docker Compose</li>
+          <li>Linux VPS</li>
+          <li>OAuth</li>
+          <li>REST APIs</li>
+          <li>Telegram</li>
+          <li>Google Workspace</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected enterprise platforms</h2>
+        </header>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-building"/></svg></span>
+            <p class="project-kicker">Corporate platform</p>
+            <h3>C.P. Bangladesh</h3>
+            <p>Multilingual corporate and recruitment platform with recruitment workflows, dynamic content, <strong class="hl">SMS gateway</strong> integration, and email communication.</p>
+            <ul class="tag-list">
+              <li>Laravel</li>
+              <li>Vue.js</li>
+              <li>Vuetify</li>
+              <li>Bootstrap</li>
+              <li>MySQL</li>
+            </ul>
+            <a class="project-link" href="https://cpbangladesh.com/" target="_blank" rel="noopener noreferrer">
+              Visit cpbangladesh.com
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-link"/></svg>
+            </a>
+          </article>
+          <article class="project-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-layers"/></svg></span>
+            <p class="project-kicker">Food &amp; franchise</p>
+            <h3>CP Five Star</h3>
+            <p>Food-product and franchise platform with dynamic product management, customer communication, social features, and <strong class="hl">Google Maps</strong> franchise locations.</p>
+            <ul class="tag-list">
+              <li>Laravel</li>
+              <li>Vue.js</li>
+              <li>Vuetify</li>
+              <li>MySQL</li>
+              <li>Google Maps</li>
+            </ul>
+            <a class="project-link" href="https://cpbfivestar.com/" target="_blank" rel="noopener noreferrer">
+              Visit cpbfivestar.com
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-link"/></svg>
+            </a>
+          </article>
+          <article class="project-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-monitor"/></svg></span>
+            <p class="project-kicker">Commerce</p>
+            <h3>CP Five Star POS</h3>
+            <p><strong class="hl">B2B/B2C POS</strong> and business-management platform covering sales, orders, stock, profit/loss reporting, customer workflows, and SMS notifications.</p>
+            <ul class="tag-list">
+              <li>Laravel</li>
+              <li>Vue.js</li>
+              <li>Vuetify</li>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+            </ul>
+            <a class="project-link" href="https://fs.cpbfivestar.com/" target="_blank" rel="noopener noreferrer">
+              Visit fs.cpbfivestar.com
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-link"/></svg>
+            </a>
+          </article>
+          <article class="project-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-server"/></svg></span>
+            <p class="project-kicker">Internal platform · 25+ applications</p>
+            <h3>IT Portal</h3>
+            <p>Enterprise portal with <strong class="hl">25+ internal applications</strong>, including carpool and GPS tracking, inventory, automated reporting, network monitoring, ticket/access management, and Power BI integration.</p>
+            <ul class="tag-list">
+              <li>Laravel</li>
+              <li>Vue.js</li>
+              <li>REST APIs</li>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>Google Maps</li>
+              <li>GPS</li>
+              <li>Power BI</li>
+            </ul>
+            <a class="project-link" href="https://it.cpbangladesh.com/" target="_blank" rel="noopener noreferrer">
+              Visit it.cpbangladesh.com
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-link"/></svg>
+            </a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section archive">
+    <section class="section section-muted" id="skills">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Project Archive</p>
-          <h2>Snapshot of the outline-driven htdocs directory</h2>
-          <p>Each grouping references the project outline stored inside its folder so stakeholders can dive deeper.</p>
-        </div>
-        <div class="archive-grid">
-          <article>
-            <h3>Operations</h3>
-            <ul>
-              <li><strong><a href="https://it.cpbangladesh.com" target="_blank"
-                    class="text-reset font-weight-bold">cpbit</a></strong> - Platform Gateway (PG): Unified
-                authentication (LDAP/Sanctum), operations dashboards, biometric attendance automation, mobile app
-                services, QR/badge management, iAccess ticketing, notification pipelines (SMS/Telegram/Email), document
-                & hardware catalogues, AI & chatbot services (Gemini/OpenAI)</li>
-              <li><strong>cpbit_crm</strong> - Distributor/farmer intelligence, visit logging</li>
-              <li><strong>cpbit_inventory</strong> - Stock movements, warranty alerts, thermal printing</li>
+        <header class="section-head reveal">
+          <p class="eyebrow">Skills</p>
+          <h2>A leadership stack with production depth</h2>
+        </header>
+        <div class="skills-grid">
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-users"/></svg></span>
+            <h3>Leadership</h3>
+            <ul class="tag-list">
+              <li>Department management</li>
+              <li>Planning</li>
+              <li>Mentoring</li>
+              <li>Code review</li>
+              <li>Stakeholder management</li>
+              <li>Risk &amp; change</li>
             </ul>
           </article>
-          <article>
-            <h3>Facilities & Network</h3>
-            <ul>
-              <li><strong>cpbit_room</strong> - Room reservation with FullCalendar and Telegram alerts</li>
-              <li><strong>cpbit_network</strong> - ICMP monitoring, AI-powered outage analysis, speed tests</li>
-              <li><strong>LIVE SERVER Task Schedules</strong> - automation runbooks</li>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-code"/></svg></span>
+            <h3>Laravel / PHP</h3>
+            <ul class="tag-list">
+              <li>Laravel</li>
+              <li>PHP</li>
+              <li>Composer</li>
+              <li>Auth / authorization</li>
+              <li>Application architecture</li>
             </ul>
           </article>
-          <article>
-            <h3>Support & Service</h3>
-            <ul>
-              <li><strong>cpbit_iticket</strong> - multi-step incidents and approvals</li>
-              <li><strong>cpbit_iservice</strong> - Bangla sales reports and permissions</li>
-              <li><strong>Portfolio / Vue Theme</strong> - experimentation and style systems</li>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-monitor"/></svg></span>
+            <h3>Vue.js / JavaScript</h3>
+            <ul class="tag-list">
+              <li>Vue.js</li>
+              <li>JavaScript ES6+</li>
+              <li>Vuetify</li>
+              <li>Vuex</li>
+              <li>Vite</li>
+              <li>HTML5 / CSS3</li>
             </ul>
           </article>
-          <article>
-            <h3>Retail</h3>
-            <ul>
-              <li><strong>bdpos_user</strong> - retail POS for chicken sales</li>
-              <li><strong>cpos_user</strong> - dealer order capture and reporting</li>
-              <li><strong>qsr_pos</strong> - quick-serve POS foundation</li>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-database"/></svg></span>
+            <h3>MySQL / PostgreSQL</h3>
+            <ul class="tag-list">
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>Query optimization</li>
+              <li>Schema design</li>
+            </ul>
+          </article>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-plug"/></svg></span>
+            <h3>REST APIs</h3>
+            <ul class="tag-list">
+              <li>API design</li>
+              <li>Integrations</li>
+              <li>Access control</li>
+              <li>Third-party APIs</li>
+            </ul>
+          </article>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-server"/></svg></span>
+            <h3>Docker / Linux</h3>
+            <ul class="tag-list">
+              <li>Docker</li>
+              <li>Docker Compose</li>
+              <li>Linux VPS</li>
+              <li>DNS / SSL</li>
+              <li>Production deployment</li>
+            </ul>
+          </article>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-git"/></svg></span>
+            <h3>Git / GitHub</h3>
+            <ul class="tag-list">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Code review</li>
+              <li>Release workflow</li>
+            </ul>
+          </article>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-spark"/></svg></span>
+            <h3>AI / LLM / OpenClaw</h3>
+            <ul class="tag-list">
+              <li>OpenClaw</li>
+              <li>Multi-agent LLM</li>
+              <li>OpenRouter</li>
+              <li>Telegram bots</li>
+              <li>Prompt engineering</li>
+              <li>OCR / vision</li>
+            </ul>
+          </article>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-mail"/></svg></span>
+            <h3>Google Workspace APIs</h3>
+            <ul class="tag-list">
+              <li>Gmail API</li>
+              <li>Calendar API</li>
+              <li>Drive API</li>
+              <li>Workspace tooling</li>
+            </ul>
+          </article>
+          <article class="skill-group reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-shield"/></svg></span>
+            <h3>OAuth / Google Maps / GPS</h3>
+            <ul class="tag-list">
+              <li>OAuth</li>
+              <li>Google Maps</li>
+              <li>GPS tracking</li>
+              <li>Email / SMS</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section class="section" id="education">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <h2>Ready to build your next mission-critical product?</h2>
-            <p>I'm available for senior engineering leadership, fractional CTO and consulting engagements. Let's talk
-              about transforming your operations stack.</p>
-            <ul class="contact-list list-unstyled">
-              <li><i class="icofont-ui-cell-phone"></i> +8801 70708 0401</li>
-              <li><i class="icofont-email"></i> syful.cse.bd@gmail.com</li>
-              <li><i class="icofont-read-book"></i> Gazipur, Dhaka, Bangladesh</li>
+        <header class="section-head reveal">
+          <p class="eyebrow">Education</p>
+          <h2>Academic foundation</h2>
+        </header>
+        <div class="education-grid">
+          <article class="edu-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-grad"/></svg></span>
+            <p class="edu-status">Ongoing</p>
+            <h3>Professional Master's in Information Technology</h3>
+            <p>Institute of Information Technology (IIT), <strong class="hl">Jahangirnagar University</strong>, Dhaka</p>
+          </article>
+          <article class="edu-card reveal">
+            <span class="card-icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-grad"/></svg></span>
+            <p class="edu-status">CGPA <strong class="hl">3.82 / 4.00</strong></p>
+            <h3>B.Sc. in Computer Science</h3>
+            <p>North Western University, Khulna</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="contact">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s discuss engineering leadership and delivery</h2>
+        </header>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <p>Open to conversations about <strong class="hl">Application Development Manager</strong>, Engineering Manager, Technical Lead, and AI automation roles.</p>
+            <ul class="contact-list">
+              <li>
+                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-mail"/></svg></span>
+                <span>Email</span>
+                <a href="mailto:syful.cse.bd@gmail.com">syful.cse.bd@gmail.com</a>
+              </li>
+              <li>
+                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-phone"/></svg></span>
+                <span>Phone</span>
+                <a href="tel:+8801707080401">+88 01707-080401</a>
+              </li>
+              <li>
+                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-users"/></svg></span>
+                <span>LinkedIn</span>
+                <a href="https://www.linkedin.com/in/cse-saif01" target="_blank" rel="noopener noreferrer">linkedin.com/in/cse-saif01</a>
+              </li>
+              <li>
+                <span class="card-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-code"/></svg></span>
+                <span>GitHub / Portfolio</span>
+                <a href="https://github.com/saif01" target="_blank" rel="noopener noreferrer">github.com/saif01</a>
+              </li>
             </ul>
-            <div class="socials">
-              <a href="https://www.facebook.com/syful.cse" target="_blank"><i class="icofont-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/syful-islam-09379013b" target="_blank"><i
-                  class="icofont-linkedin"></i></a>
-              <a href="https://github.com/saif01" target="_blank"><i class="icofont-github"></i></a>
-              <a href="https://stackoverflow.com/users/12693747/md-syful-islam" target="_blank"><i
-                  class='bx bxl-stack-overflow'></i></a>
-            </div>
           </div>
-          <div class="col-lg-5">
-            <div class="contact-card">
-              <h3>Let's collaborate</h3>
-              <p>Share a short brief about your challenge and I'll respond within 1 business day.</p>
-              <a class="btn btn-success btn-pill" href="mailto:syful.cse.bd@gmail.com">Email me directly</a>
-              <p class="mt-3">Prefer chat? <a href="https://join.skype.com/invite/aJvQaq3Ld9zZ" target="_blank"
-                  class="text-reset">Meet me on Skype</a></p>
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required maxlength="80">
+              <p class="field-error" data-error-for="name"></p>
             </div>
-          </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <p class="field-error" data-error-for="email"></p>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required maxlength="120">
+              <p class="field-error" data-error-for="subject"></p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required minlength="20" maxlength="2000"></textarea>
+              <p class="field-error" data-error-for="message"></p>
+            </div>
+            <button class="btn btn-primary" type="submit">
+              <svg class="btn-icon" width="16" height="16" aria-hidden="true"><use href="#i-send"/></svg>
+              Send message
+            </button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <p class="mb-2 mb-md-0">&copy; <span id="year"></span> Md. Syful Islam. All rights reserved.</p>
-      <a href="portfolio.html" class="text-reset">Project archive</a>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Md. Syful Islam. Application Development leadership, enterprise software, and AI automation.</p>
+      <a href="#hero">Back to top</a>
     </div>
   </footer>
 
-  <a href="#hero" class="back-to-top text-decoration-none"><i class="icofont-hand-drag1"></i></a>
+  <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script>
-    AOS.init({ once: true, duration: 800, offset: 120 });
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
-
 </html>
