@@ -206,14 +206,27 @@
       }, { passive: true });
 
       qsa(SELECTORS.tilt).forEach((card) => {
+        let frame = 0;
+        let cardRx = 0;
+        let cardRy = 0;
+        const paintTilt = () => {
+          frame = 0;
+          card.style.setProperty("--card-rx", `${cardRx.toFixed(2)}deg`);
+          card.style.setProperty("--card-ry", `${cardRy.toFixed(2)}deg`);
+        };
+        card.addEventListener("pointerenter", () => card.classList.add("is-tilting"));
         card.addEventListener("pointermove", (event) => {
           const rect = card.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width - 0.5;
-          const y = (event.clientY - rect.top) / rect.height - 0.5;
-          card.style.setProperty("--card-rx", `${(-y * 5).toFixed(2)}deg`);
-          card.style.setProperty("--card-ry", `${(x * 6).toFixed(2)}deg`);
-        });
+          cardRx = -((event.clientY - rect.top) / rect.height - 0.5) * 5;
+          cardRy = ((event.clientX - rect.left) / rect.width - 0.5) * 6;
+          if (!frame) frame = requestAnimationFrame(paintTilt);
+        }, { passive: true });
         card.addEventListener("pointerleave", () => {
+          if (frame) {
+            cancelAnimationFrame(frame);
+            frame = 0;
+          }
+          card.classList.remove("is-tilting");
           card.style.setProperty("--card-rx", "0deg");
           card.style.setProperty("--card-ry", "0deg");
         });
@@ -233,6 +246,10 @@
       let pointerFrame = 0;
       let pointerX = 0;
       let pointerY = 0;
+      let easedX = 0;
+      let easedY = 0;
+      let restFrames = 0;
+      const EASE = 0.16;
       const layers = qsa("[data-career-depth]", map);
 
       const pauseSignals = () => routes?.pauseAnimations?.();
@@ -241,23 +258,73 @@
         window.clearTimeout(settleTimer);
         settleTimer = window.setTimeout(pauseSignals, delay);
       };
+      // the whole scene shares one tilt axis; each layer only differs in offset
+      const setTilt = (axisX, axisY, angle) => {
+        map.style.setProperty("--rot-x", axisX);
+        map.style.setProperty("--rot-y", axisY);
+        map.style.setProperty("--rot-a", angle);
+      };
       const resetDepth = () => {
+        if (pointerFrame) {
+          cancelAnimationFrame(pointerFrame);
+          pointerFrame = 0;
+        }
+        pointerX = 0;
+        pointerY = 0;
+        easedX = 0;
+        easedY = 0;
+        setTilt("0", "1", "0deg");
         map.style.setProperty("--depth-x", "0px");
         map.style.setProperty("--depth-y", "0px");
         layers.forEach((layer) => {
           layer.style.setProperty("--depth-x", "0px");
           layer.style.setProperty("--depth-y", "0px");
+          layer.style.setProperty("--depth-z", "0px");
         });
       };
       const paintDepth = () => {
-        map.style.setProperty("--depth-x", `${(pointerX * 5).toFixed(2)}px`);
-        map.style.setProperty("--depth-y", `${(pointerY * 5).toFixed(2)}px`);
+        easedX += (pointerX - easedX) * EASE;
+        easedY += (pointerY - easedY) * EASE;
+        const settled =
+          Math.abs(pointerX - easedX) < 0.0008 && Math.abs(pointerY - easedY) < 0.0008;
+        if (settled) {
+          easedX = pointerX;
+          easedY = pointerY;
+        }
+
+        // rotate about an axis perpendicular to the cursor offset, so the card
+        // leans toward the pointer instead of tilting on fixed X/Y hinges. The
+        // hero card already contributes ~6deg of its own, so keep this modest.
+        const axisX = -easedY;
+        const axisY = easedX;
+        const reach = Math.hypot(axisX, axisY);
+        const lean = Math.min(reach * 2, 1);
+        if (reach < 0.0005) {
+          setTilt("0", "1", "0deg");
+        } else {
+          setTilt(
+            (axisX / reach).toFixed(4),
+            (axisY / reach).toFixed(4),
+            `${(lean * 5).toFixed(2)}deg`
+          );
+        }
+        map.style.setProperty("--depth-x", `${(easedX * 5).toFixed(2)}px`);
+        map.style.setProperty("--depth-y", `${(easedY * 5).toFixed(2)}px`);
         layers.forEach((layer) => {
           const depth = Number(layer.dataset.careerDepth) || 1;
-          layer.style.setProperty("--depth-x", `${(pointerX * depth * 8).toFixed(2)}px`);
-          layer.style.setProperty("--depth-y", `${(pointerY * depth * 8).toFixed(2)}px`);
+          layer.style.setProperty("--depth-x", `${(easedX * depth * 8).toFixed(2)}px`);
+          layer.style.setProperty("--depth-y", `${(easedY * depth * 8).toFixed(2)}px`);
+          layer.style.setProperty("--depth-z", `${(lean * depth * 26).toFixed(2)}px`);
         });
-        pointerFrame = 0;
+
+        // keep the loop alive a few frames past arrival so a resting pointer
+        // does not restart it on every micro-move
+        restFrames = settled ? restFrames + 1 : 0;
+        pointerFrame = restFrames > 2 ? 0 : requestAnimationFrame(paintDepth);
+      };
+      const requestPaint = () => {
+        restFrames = 0;
+        if (!pointerFrame) pointerFrame = requestAnimationFrame(paintDepth);
       };
 
       if (reducedMotion) {
@@ -269,21 +336,30 @@
       playSignals();
       scheduleSettle();
 
+      const wake = () => {
+        playSignals();
+        window.clearTimeout(settleTimer);
+      };
+
+      map.addEventListener("pointerenter", wake);
+
       if (window.matchMedia("(pointer: fine)").matches) {
-        map.addEventListener("pointerenter", () => {
-          playSignals();
-          window.clearTimeout(settleTimer);
-        });
         map.addEventListener("pointermove", (event) => {
           const rect = map.getBoundingClientRect();
           pointerX = (event.clientX - rect.left) / rect.width - 0.5;
           pointerY = (event.clientY - rect.top) / rect.height - 0.5;
-          if (!pointerFrame) pointerFrame = requestAnimationFrame(paintDepth);
+          requestPaint();
         }, { passive: true });
         map.addEventListener("pointerleave", () => {
-          resetDepth();
+          // ease back to rest rather than snapping the layers to zero
+          pointerX = 0;
+          pointerY = 0;
+          requestPaint();
           scheduleSettle(900);
         });
+      } else {
+        map.addEventListener("pointerdown", wake, { passive: true });
+        map.addEventListener("pointerup", () => scheduleSettle(4000), { passive: true });
       }
 
       document.addEventListener("visibilitychange", () => {

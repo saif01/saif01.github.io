@@ -5,9 +5,10 @@ Project skills live in `.claude/skills/` (graphify). Mirrors: `.agents/skills/`,
 
 ## Graphify-first policy
 
-A persistent knowledge graph lives at **`graphify-out/`** (repo root): **17 nodes / 32 edges** from
-site JavaScript, scanned from the root (`.`), excluding vendor, images, documents, and agent
-wiring (see `.graphifyignore`). When answering a natural-language question about the codebase,
+A persistent knowledge graph lives at **`graphify-out/`** (repo root): **55 nodes / 57 edges /
+7 communities** covering site JavaScript plus the Markdown docs (README, AGENTS, CLAUDE, CV),
+scanned from the root (`.`), excluding vendor and images (see `.graphifyignore`). When answering a
+natural-language question about the codebase,
 treat it as a graphify query first — run `graphify query "<question>"` before falling back to
 grep/read.
 
@@ -19,8 +20,12 @@ dirs are gitignored and must not be committed.
 - "How does A connect to B?" → `graphify path "<A>" "<B>"`
 - Overview → `graphify-out/GRAPH_REPORT.md`
 
-God nodes: `init()`, `onSubmit()`, `preferred()`, `current()`, `getStored()`, `apply()`,
-`isOpen()`, `setOpen()`, `onScroll()`, `observeSections()`.
+God nodes (most connected, per `GRAPH_REPORT.md`): `MD. SYFUL ISLAM` (10), `init()` (8),
+`Md. Syful Islam — Portfolio` (8), `CORE EXPERTISE` (7), `Graphify-first policy` (5),
+`SELECTED ENTERPRISE PROJECTS` (5), `getStored()` (2).
+
+The JS extractor captures named functions only — `main.js` module objects (`CareerMap`, `Nav`,
+`BackToTop`, …) are not nodes, so reach them via their `init()` / handler functions.
 
 Keep it current from the **project root only**:
 
@@ -30,7 +35,7 @@ graphify .          # full pipeline — when docs/PDFs/images are added
 ```
 
 Never pass a subfolder as the scan root — that spawns a stray nested `graphify-out/`.
-`assets/vendor/`, `assets/images/`, `assets/img/`, and `assets/documents/` are out of scope; say so
+`assets/vendor/`, `assets/images/`, and `assets/img/` are out of scope; say so
 rather than guessing if a question touches them.
 
 ## graphify

@@ -235,7 +235,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L36",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "claude_graphify",
       "community": 4,
@@ -655,7 +655,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/js/main.js",
-      "source_location": "L313",
+      "source_location": "L389",
       "weight": 1.0,
       "_origin": "ast",
       "source": "assets_js_main",
@@ -882,7 +882,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L36",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_md_syful_islam_portfolio",
@@ -1254,5 +1254,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d016de49726520477c4490d2f82b864d84d048fc"
+  "built_at_commit": "5ffe5c88ce84511ecd588a51d2c9b2e61a429370"
 }

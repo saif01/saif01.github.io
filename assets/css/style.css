@@ -707,6 +707,12 @@ h2 .hl,
   animation: none;
 }
 
+/* while the pointer drives the tilt, rAF is the smoothing - a transition here
+   would only add lag. It comes back on pointerleave for the return to rest. */
+.hero-card.is-tilting {
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.7s var(--ease);
+}
+
 .hero-card:hover {
   box-shadow: 0 32px 80px rgba(11, 31, 51, 0.18);
   border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
@@ -730,48 +736,6 @@ h2 .hl,
   height: 0.4rem;
 }
 
-.portrait-wrap {
-  position: relative;
-}
-
-.portrait {
-  width: 100%;
-  aspect-ratio: 4 / 4.35;
-  object-fit: cover;
-  object-position: 50% 12%;
-  border-radius: var(--radius);
-  background: #e9eef5;
-}
-
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.portrait-badge {
-  position: absolute;
-  left: 0.7rem;
-  right: 0.7rem;
-  bottom: 0.7rem;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 0.7rem 0.85rem;
-  border-radius: 0.8rem;
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-  backdrop-filter: blur(10px);
-  font-size: 0.72rem;
-  color: var(--navy);
-}
-
-.portrait-badge span {
-  color: var(--muted);
-}
-
-.portrait-badge strong {
-  font-size: 0.86rem;
-}
-
 .career-map {
   --depth-x: 0px;
   --depth-y: 0px;
@@ -784,7 +748,11 @@ h2 .hl,
   background:
     radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--accent) 14%, transparent) 0, transparent 33%),
     linear-gradient(145deg, color-mix(in srgb, var(--surface) 96%, var(--accent)), var(--bg-muted));
-  perspective: 900px;
+  perspective: 1000px;
+  perspective-origin: 50% 42%;
+  --rot-x: 0;
+  --rot-y: 1;
+  --rot-a: 0deg;
 }
 
 .career-map::before,
@@ -865,11 +833,11 @@ h2 .hl,
 }
 
 .hero-card.is-visible .career-orbit-outer {
-  animation: career-orbit-arrive 1.4s 0.35s var(--ease) both, career-orbit-turn 18s 1.75s linear 1;
+  animation: career-orbit-arrive 1.4s 0.35s var(--ease) both, career-orbit-turn 18s 1.75s linear 1 forwards;
 }
 
 .hero-card.is-visible .career-orbit-inner {
-  animation: career-orbit-arrive 1.2s 0.5s var(--ease) both, career-orbit-turn-reverse 16s 1.7s linear 1;
+  animation: career-orbit-arrive 1.2s 0.5s var(--ease) both, career-orbit-turn-reverse 16s 1.7s linear 1 forwards;
 }
 
 .career-route {
@@ -936,29 +904,44 @@ h2 .hl,
 .career-node {
   --depth-x: 0px;
   --depth-y: 0px;
-  transition: translate 0.4s var(--ease-spring), border-color 0.25s ease, box-shadow 0.25s ease;
-  translate: var(--depth-x) var(--depth-y);
+  --depth-z: 0px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  translate: var(--depth-x) var(--depth-y) var(--depth-z);
+  rotate: var(--rot-x) var(--rot-y) 0 var(--rot-a);
 }
 
 .career-core {
   position: absolute;
   z-index: 4;
   left: 50%;
-  top: 50%;
-  width: 8.6rem;
-  aspect-ratio: 1;
-  display: grid;
-  justify-items: center;
-  align-content: center;
+  top: 6%;
+  width: 30%;
+  aspect-ratio: 0.465;
+  margin-left: -15%;
+  will-change: transform;
   border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
   border-radius: 50%;
   background: color-mix(in srgb, var(--surface) 92%, transparent);
   box-shadow:
-    0 1rem 3rem rgba(11, 31, 51, 0.16),
-    inset 0 0 0 0.35rem color-mix(in srgb, var(--surface) 84%, transparent),
-    0 0 0 0.45rem color-mix(in srgb, var(--accent) 7%, transparent);
-  backdrop-filter: blur(12px);
-  transform: translate(-50%, -50%);
+    0 1.8rem 3.4rem rgba(11, 31, 51, 0.24),
+    0 0.5rem 1rem rgba(11, 31, 51, 0.1),
+    0 0 0 0.4rem color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+/* specular sweep across the oval - reads as light travelling over glass */
+.career-core::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    128deg,
+    transparent 34%,
+    color-mix(in srgb, #ffffff 62%, transparent) 47%,
+    transparent 60%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .career-core-ring {
@@ -975,21 +958,39 @@ h2 .hl,
   animation: career-core-scan 3.6s 0.7s var(--ease) 2;
 }
 
+.hero-card.is-visible .career-core {
+  animation:
+    career-core-arrive 1.15s 0.2s var(--ease-spring) both,
+    career-core-float 9s 1.35s ease-in-out infinite;
+}
+
+.hero-card.is-visible .career-core::after {
+  animation: career-core-sheen 6.5s 1.9s ease-in-out infinite;
+}
+
 .career-portrait {
-  width: 3.45rem;
-  aspect-ratio: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 16%;
+  object-position: 50% 18%;
   border: 2px solid var(--surface);
   border-radius: 50%;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 38%, var(--border));
 }
 
 .career-core-status {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.55rem);
+  z-index: 3;
+  translate: -50% 0;
   display: inline-flex;
   align-items: center;
   gap: 0.28rem;
-  margin-top: 0.35rem;
+  white-space: nowrap;
   font-family: var(--mono);
   font-size: 0.47rem;
   font-weight: 600;
@@ -1007,17 +1008,22 @@ h2 .hl,
 }
 
 .career-core strong {
-  margin-top: 0.2rem;
-  font-size: 0.66rem;
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 1.65rem);
+  z-index: 3;
+  translate: -50% 0;
+  font-size: 0.7rem;
   line-height: 1.15;
   text-align: center;
+  white-space: nowrap;
   color: var(--navy);
 }
 
 .career-node {
   position: absolute;
   z-index: 3;
-  width: 7.2rem;
+  width: clamp(6.35rem, 33%, 7.6rem);
   min-height: 3.7rem;
   display: grid;
   align-content: center;
@@ -1090,30 +1096,42 @@ h2 .hl,
 
 .career-node-portfolio {
   --node-delay: 1.15s;
+  --node-turn: 15deg;
   left: 0.65rem;
   top: 1.25rem;
 }
 
 .career-node-skills {
   --node-delay: 1.55s;
+  --node-turn: -15deg;
   right: 0.65rem;
   top: 1.55rem;
 }
 
 .career-node-work {
   --node-delay: 1.95s;
+  --node-turn: 15deg;
   left: 0.75rem;
   bottom: 2.7rem;
 }
 
 .career-node-experience {
   --node-delay: 2.35s;
+  --node-turn: -15deg;
   right: 0.65rem;
   bottom: 2.55rem;
 }
 
 .hero-card.is-visible .career-node {
-  animation: career-node-arrive 0.8s calc(var(--node-delay) - 0.75s) var(--ease-spring) both;
+  animation: career-node-arrive 0.85s calc(var(--node-delay) - 0.75s) var(--ease-spring) both;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-card.is-visible .career-node {
+    animation:
+      career-node-arrive 0.85s calc(var(--node-delay) - 0.75s) var(--ease-spring) both,
+      career-node-drift 11s calc(var(--node-delay) + 0.35s) ease-in-out infinite;
+  }
 }
 
 .career-map-caption {
@@ -1179,8 +1197,45 @@ h2 .hl,
 }
 
 @keyframes career-node-arrive {
-  from { opacity: 0; scale: 0.86; filter: blur(5px); }
-  to { opacity: 1; scale: 1; filter: blur(0); }
+  from {
+    opacity: 0;
+    scale: 0.84;
+    transform: translate3d(0, 0.5rem, -170px) rotateY(var(--node-turn, 0deg));
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translate3d(0, 0, 0) rotateY(0deg);
+  }
+}
+
+@keyframes career-node-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -0.25rem, 20px); }
+}
+
+@keyframes career-core-arrive {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14%, -300px) rotateX(26deg) rotateY(-18deg) scale(0.92);
+  }
+  55% { opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes career-core-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg); }
+  25% { transform: translate3d(0, -0.9%, 22px) rotateY(4.5deg) rotateX(-1.5deg); }
+  75% { transform: translate3d(0, -0.9%, 22px) rotateY(-4.5deg) rotateX(1.5deg); }
+}
+
+@keyframes career-core-sheen {
+  0%, 62%, 100% { opacity: 0; translate: -38% 0; }
+  6% { opacity: 0.85; }
+  38% { opacity: 0; translate: 38% 0; }
 }
 
 @keyframes career-node-ping {
@@ -2152,15 +2207,12 @@ h2 .hl,
 
 @media (max-width: 420px) {
   .career-core {
-    width: 7.5rem;
-  }
-
-  .career-portrait {
-    width: 3rem;
+    width: 34%;
+    aspect-ratio: 0.564;
+    margin-left: -17%;
   }
 
   .career-node {
-    width: 6.35rem;
     min-height: 3.35rem;
     padding-right: 0.4rem;
   }

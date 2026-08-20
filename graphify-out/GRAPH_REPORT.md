@@ -1,7 +1,7 @@
-# Graph Report - saif01.github.io  (2026-08-18)
+# Graph Report - saif01.github.io  (2026-08-20)
 
 ## Corpus Check
-- 5 files · ~6,575 words
+- 5 files · ~6,952 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d016de49`
+- Built from commit: `5ffe5c88`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

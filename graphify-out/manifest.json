@@ -1,7 +1,7 @@
 {
   "assets/js/main.js": {
-    "mtime": 1787050641.090244,
-    "ast_hash": "ed50fffe2a0ceaeef3dd394c12785bca",
+    "mtime": 1787216608.590114,
+    "ast_hash": "68e8e3679efbdb0b118f9b637d9df578",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1787042952.4958038,
-    "ast_hash": "040a9595b11a7553f7b8049f2b9fa35d",
+    "mtime": 1787215044.651716,
+    "ast_hash": "4d0b56ff7c34a3738ecfa9b73b361528",
     "semantic_hash": ""
   },
   "README.md": {
@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787050341.395281,
-    "ast_hash": "15c6dbc3488e741df575e8b087c86a2e",
+    "mtime": 1787215744.601604,
+    "ast_hash": "21e2f27aa116bfec88cde69b1e08b1c1",
     "semantic_hash": ""
   },
   "inner.html": {

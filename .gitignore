@@ -16,3 +16,4 @@ __pycache__/
 /graphify-out/graph.html
 /graphify-out/.graphify_python
 /graphify-out/.graphify_analysis.json
+/graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
