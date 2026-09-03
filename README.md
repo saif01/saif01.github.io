@@ -15,7 +15,7 @@ index.html
 assets/css/style.css
 assets/js/main.js
 assets/images/
-assets/documents/cv.pdf
+assets/cv/Md_Syful_Islam_CV.pdf
 README.md
 ```
 
@@ -26,10 +26,11 @@ README.md
 3. Core Expertise
 4. Experience
 5. AI & Automation (OpenClaw Agent)
-6. Projects
-7. Skills
-8. Education
-9. Contact
+6. Identity & Access (Active Directory Self-Service Platform)
+7. Projects
+8. Skills
+9. Education
+10. Contact
 
 ## Features
 
@@ -57,7 +58,7 @@ Then visit `http://localhost:8000`.
 - Profile copy: `index.html`
 - Colors and layout: `assets/css/style.css`
 - Interactions: `assets/js/main.js`
-- CV file: `assets/documents/cv.pdf`
+- CV file: `assets/cv/Md_Syful_Islam_CV.pdf` (served by both Download CV buttons)
 - Portrait and icons: `assets/images/`
 
 ## Contact

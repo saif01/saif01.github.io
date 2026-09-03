@@ -2,7 +2,6 @@
 assets/vendor/
 assets/images/
 assets/img/
-assets/documents/
 *.pdf
 *.docx
 *.ico

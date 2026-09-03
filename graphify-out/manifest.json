@@ -1,27 +1,22 @@
 {
   "assets/js/main.js": {
-    "mtime": 1787216608.590114,
-    "ast_hash": "68e8e3679efbdb0b118f9b637d9df578",
+    "mtime": 1788412718.4018836,
+    "ast_hash": "17c5074f3491920435c18f4aba615f70",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1787042950.3256502,
-    "ast_hash": "445688a56f7ba6876802999fd4094b27",
+    "mtime": 1788413393.8098567,
+    "ast_hash": "aeccf5fac04c02c2aff92cf68b4d812b",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1787215044.651716,
-    "ast_hash": "4d0b56ff7c34a3738ecfa9b73b361528",
+    "mtime": 1788412275.785066,
+    "ast_hash": "ac843457f524ec0e14df9ea9fd344e8f",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787044366.100922,
-    "ast_hash": "3b3f83b09f19c8319a6f4010d9189cd9",
-    "semantic_hash": ""
-  },
-  "assets/cv/Md_Syful_Islam_CV_2026.md": {
-    "mtime": 1787043829.5398617,
-    "ast_hash": "e0d9c8953b1d26e6a121842efbbe7f40",
+    "mtime": 1788413393.8093348,
+    "ast_hash": "fde2b47bd04836b9a7142c71914cc88e",
     "semantic_hash": ""
   },
   "contact.html": {
@@ -30,8 +25,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787215744.601604,
-    "ast_hash": "21e2f27aa116bfec88cde69b1e08b1c1",
+    "mtime": 1788413167.7832742,
+    "ast_hash": "b3741faf9346c743f6e4b2d4f7104f2b",
     "semantic_hash": ""
   },
   "inner.html": {
@@ -47,6 +42,11 @@
   "portfolio.html": {
     "mtime": 1787041777.1933365,
     "ast_hash": "9cd43a3c1bfde084dd6e4a0db95aedd7",
+    "semantic_hash": ""
+  },
+  "assets/cv/Md_Syful_Islam_CV_2026_updated_2026-09-03.md": {
+    "mtime": 1788389168.0,
+    "ast_hash": "aa77d1ea34559556d3c01b4b2dae80d1",
     "semantic_hash": ""
   }
 }

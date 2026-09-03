@@ -19,6 +19,8 @@
   };
 
   const THEME_KEY = "portfolio-theme";
+  // keep in sync with the nav media queries in style.css
+  const NAV_BREAKPOINT = 1000;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const qs = (sel, root = document) => root.querySelector(sel);
@@ -78,7 +80,7 @@
         if (event.key === "Escape") this.setOpen(false);
       });
       window.addEventListener("resize", () => {
-        if (window.innerWidth >= 900) this.setOpen(false);
+        if (window.innerWidth >= NAV_BREAKPOINT) this.setOpen(false);
       });
       this.observeSections();
     },
@@ -129,8 +131,12 @@
       const items = qsa(SELECTORS.reveal);
       const groups = [".about-cards", ".expertise-grid", ".agent-grid", ".project-grid", ".skills-grid", ".education-grid"];
       groups.forEach((sel) => {
-        qsa(`${sel} > .reveal`).forEach((el, index) => {
-          el.style.setProperty("--delay", `${index * 70}ms`);
+        // stagger per grid instance, so a repeated layout (e.g. two .agent-grid
+        // blocks) restarts its delay instead of continuing the previous count
+        qsa(sel).forEach((grid) => {
+          qsa(":scope > .reveal", grid).forEach((el, index) => {
+            el.style.setProperty("--delay", `${index * 70}ms`);
+          });
         });
       });
 

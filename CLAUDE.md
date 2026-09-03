@@ -5,8 +5,8 @@ Project skills live in `.claude/skills/` (graphify). Mirrors: `.agents/skills/`,
 
 ## Graphify-first policy
 
-A persistent knowledge graph lives at **`graphify-out/`** (repo root): **55 nodes / 57 edges /
-7 communities** covering site JavaScript plus the Markdown docs (README, AGENTS, CLAUDE, CV),
+A persistent knowledge graph lives at **`graphify-out/`** (repo root): **48 nodes / 50 edges /
+9 communities** covering site JavaScript plus the Markdown docs (README, AGENTS, CLAUDE, CV),
 scanned from the root (`.`), excluding vendor and images (see `.graphifyignore`). When answering a
 natural-language question about the codebase,
 treat it as a graphify query first — run `graphify query "<question>"` before falling back to
@@ -21,8 +21,7 @@ dirs are gitignored and must not be committed.
 - Overview → `graphify-out/GRAPH_REPORT.md`
 
 God nodes (most connected, per `GRAPH_REPORT.md`): `MD. SYFUL ISLAM` (10), `init()` (8),
-`Md. Syful Islam — Portfolio` (8), `CORE EXPERTISE` (7), `Graphify-first policy` (5),
-`SELECTED ENTERPRISE PROJECTS` (5), `getStored()` (2).
+`Md. Syful Islam — Portfolio` (8), `Graphify-first policy (read before exploring code)` (5).
 
 The JS extractor captures named functions only — `main.js` module objects (`CareerMap`, `Nav`,
 `BackToTop`, …) are not nodes, so reach them via their `init()` / handler functions.

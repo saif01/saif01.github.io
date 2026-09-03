@@ -1450,6 +1450,17 @@ h2 .hl,
   transition: transform 0.28s var(--ease), background 0.28s ease;
 }
 
+/* fill-mode is backwards only: a forwards fill would pin the transform and
+   swallow the :hover scale below */
+.reveal.is-visible > .card-icon {
+  animation: icon-pop 0.5s var(--ease-spring) 0.12s backwards;
+}
+
+@keyframes icon-pop {
+  from { opacity: 0; transform: scale(0.6) rotate(-12deg); }
+  to { opacity: 1; transform: none; }
+}
+
 .info-card:hover .card-icon,
 .expertise-card:hover .card-icon,
 .agent-card:hover .card-icon,
@@ -1636,15 +1647,18 @@ h2 .hl,
   color: var(--accent);
 }
 
+/* nodes land in sequence, then a slow signal travels the chain on a loop */
 .architecture.is-visible .arch-node {
-  animation: arch-in 0.55s var(--ease) both;
+  animation:
+    arch-in 0.55s var(--ease) both,
+    arch-pulse 6s var(--ease) infinite;
 }
 
-.architecture.is-visible .arch-node:nth-child(1) { animation-delay: 0.05s; }
-.architecture.is-visible .arch-node:nth-child(2) { animation-delay: 0.18s; }
-.architecture.is-visible .arch-node:nth-child(3) { animation-delay: 0.31s; }
-.architecture.is-visible .arch-node:nth-child(4) { animation-delay: 0.44s; }
-.architecture.is-visible .arch-node:nth-child(5) { animation-delay: 0.57s; }
+.architecture.is-visible .arch-node:nth-child(1) { animation-delay: 0.05s, 1.1s; }
+.architecture.is-visible .arch-node:nth-child(2) { animation-delay: 0.18s, 1.35s; }
+.architecture.is-visible .arch-node:nth-child(3) { animation-delay: 0.31s, 1.6s; }
+.architecture.is-visible .arch-node:nth-child(4) { animation-delay: 0.44s, 1.85s; }
+.architecture.is-visible .arch-node:nth-child(5) { animation-delay: 0.57s, 2.1s; }
 
 @keyframes arch-in {
   from { opacity: 0; transform: translateY(12px) scale(0.96); }
@@ -1652,8 +1666,8 @@ h2 .hl,
 }
 
 @keyframes arch-pulse {
-  0%, 100% { border-color: var(--border); box-shadow: none; }
-  50% { border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); }
+  0%, 12%, 100% { border-color: var(--border); box-shadow: none; }
+  5% { border-color: var(--accent); box-shadow: 0 0 0 3px var(--ring); }
 }
 
 .arch-node::after {
@@ -1664,6 +1678,20 @@ h2 .hl,
   transform: translateX(-50%);
   color: var(--accent);
   font-size: 0.85rem;
+}
+
+.architecture.is-visible .arch-node::after {
+  animation: arch-arrow-down 2.6s var(--ease) infinite;
+}
+
+@keyframes arch-arrow-down {
+  0%, 100% { opacity: 0.45; transform: translateX(-50%) translateY(-2px); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(2px); }
+}
+
+@keyframes arch-arrow-right {
+  0%, 100% { opacity: 0.45; transform: translateY(-50%) translateX(-2px); }
+  50% { opacity: 1; transform: translateY(-50%) translateX(2px); }
 }
 
 .arch-node:last-child::after {
@@ -1756,6 +1784,20 @@ h2 .hl,
 .skill-group.is-visible .tag-list li:nth-child(4) { animation-delay: 0.2s; }
 .skill-group.is-visible .tag-list li:nth-child(5) { animation-delay: 0.25s; }
 .skill-group.is-visible .tag-list li:nth-child(6) { animation-delay: 0.3s; }
+
+.tech-row.is-visible li {
+  animation: tag-in 0.42s var(--ease) both;
+}
+
+.tech-row.is-visible li:nth-child(1) { animation-delay: 0.04s; }
+.tech-row.is-visible li:nth-child(2) { animation-delay: 0.09s; }
+.tech-row.is-visible li:nth-child(3) { animation-delay: 0.14s; }
+.tech-row.is-visible li:nth-child(4) { animation-delay: 0.19s; }
+.tech-row.is-visible li:nth-child(5) { animation-delay: 0.24s; }
+.tech-row.is-visible li:nth-child(6) { animation-delay: 0.29s; }
+.tech-row.is-visible li:nth-child(7) { animation-delay: 0.34s; }
+.tech-row.is-visible li:nth-child(8) { animation-delay: 0.39s; }
+.tech-row.is-visible li:nth-child(9) { animation-delay: 0.44s; }
 
 @keyframes tag-in {
   from { opacity: 0; transform: translateY(6px); }
@@ -2013,12 +2055,18 @@ h2 .hl,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .about-cards > .info-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 900px) {
+/* the primary nav needs ~1000px to stay on one row; the rest of the desktop
+   layout (hero, about, contact) still switches at 900px */
+@media (min-width: 1000px) {
   .nav {
     display: block;
   }
@@ -2030,7 +2078,9 @@ h2 .hl,
   .menu-toggle {
     display: none;
   }
+}
 
+@media (min-width: 900px) {
   .hero {
     padding-block: 4.5rem 6.5rem;
   }
@@ -2085,16 +2135,11 @@ h2 .hl,
     grid-column: span 3;
   }
 
-  .expertise-card:nth-child(4),
-  .expertise-card:nth-child(5) {
-    grid-column: span 6;
-  }
-
   .agent-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .agent-card:last-child {
+  .agent-grid > .agent-card:last-child:nth-child(3n + 1) {
     grid-column: 2;
   }
 
@@ -2110,6 +2155,10 @@ h2 .hl,
     bottom: auto;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  .architecture.is-visible .arch-node::after {
+    animation-name: arch-arrow-right;
   }
 
   .experience-card {
@@ -2145,7 +2194,8 @@ h2 .hl,
   }
 }
 
-@media (max-width: 899px) {
+/* drawer nav stays until the links fit on one row at 1000px */
+@media (max-width: 999px) {
   .nav {
     position: fixed;
     inset: var(--header-h) 0 auto 0;
@@ -2182,7 +2232,9 @@ h2 .hl,
   body.nav-open {
     overflow: hidden;
   }
+}
 
+@media (max-width: 899px) {
   .pointer-glow {
     display: none;
   }
@@ -2271,7 +2323,11 @@ h2 .hl,
 
   .experience-list li,
   .experience-card.is-visible .experience-list li,
-  .skill-group.is-visible .tag-list li {
+  .skill-group.is-visible .tag-list li,
+  .tech-row.is-visible li,
+  .reveal.is-visible > .card-icon,
+  .architecture.is-visible .arch-node,
+  .architecture.is-visible .arch-node::after {
     opacity: 1;
     transform: none;
     animation: none !important;

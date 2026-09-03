@@ -43,7 +43,8 @@ Passing a subfolder as the scan root creates a stray nested `graphify-out/` and 
 
 ### Out of scope
 
-`assets/vendor/`, `assets/images/`, `assets/img/`, and `assets/documents/` are not in the graph
+`assets/vendor/`, `assets/images/`, `assets/img/`, and the binary CV files in `assets/cv/`
+are not in the graph
 (see `.graphifyignore`). If a question touches them, say so — don't guess.
 
 ## graphify
