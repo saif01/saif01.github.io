@@ -7,7 +7,7 @@
 
 ## PROFESSIONAL PROFILE
 
-Department Manager in Application Development with 10+ years of experience leading software delivery, full-stack engineering, enterprise integrations, production operations, and technical teams. Strong background in Laravel, Vue.js, .NET, REST APIs, MySQL/PostgreSQL, Linux infrastructure, and business-system modernization. Hands-on experience building production AI automation and enterprise identity/security platforms, including multi-agent Telegram assistants, Google Workspace integrations, OCR/vision workflows, electronic-component sourcing, secure ERP question-answering through controlled APIs, and a .NET/Laravel/React Native Active Directory self-service and authentication platform published on the Google Play Store.
+Department Manager in Application Development with 10+ years of experience leading software delivery, full-stack engineering, enterprise integrations, production operations, and technical teams. Strong background in Laravel, Vue.js, .NET, REST APIs, MySQL/PostgreSQL, Linux infrastructure, and business-system modernization. Hands-on experience building production AI automation and enterprise identity/security platforms, including multi-agent Telegram assistants, Google Workspace integrations, OCR/vision workflows, electronic-component sourcing, secure ERP question-answering through controlled APIs, and a .NET/Laravel/React Native Active Directory self-service and authentication platform published on the Google Play Store, plus a FastAPI/PostgreSQL LLM chat backend with allowlisted database tools.
 
 ---
 
@@ -20,7 +20,7 @@ Department management, project planning, stakeholder management, team leadership
 OpenClaw, multi-agent LLM systems, Telegram bots, OpenRouter, tool-using agents, prompt engineering, OCR / vision, human-in-the-loop workflows
 
 **Full-Stack Engineering**
-Laravel, PHP, .NET, Vue.js, React Native, JavaScript ES6+, Vuetify, REST APIs, MySQL, PostgreSQL, Vite, Composer, NPM
+Laravel, PHP, .NET, Python, FastAPI, Vue.js, React Native, JavaScript ES6+, Vuetify, REST APIs, MySQL, PostgreSQL, Vite, Composer, NPM
 
 **Infrastructure & DevOps**
 Docker, Docker Compose, Linux VPS, Windows Server, Git/GitHub, production deployment, DNS, SSL/TLS, server troubleshooting, operational runbooks
@@ -60,6 +60,15 @@ Active Directory account management, OTP-based authentication, API design & acce
 - Integrated read-only ERP Q&A through a controlled chatbot REST API for stock, RFQs, orders, and invoices, preventing direct LLM access to the production database.
 - Created operational runbooks for health checks, bot pairing, Gmail/OAuth, OpenRouter authentication, access control, and production troubleshooting.
 
+### CPB AI Service — FastAPI Backend (Capstone)
+*Python 3.14, FastAPI, PostgreSQL, OpenRouter/OpenAI, JWT, pytest*
+
+- Built a FastAPI chat service behind Laravel that answers Postgres questions through allowlisted Python tools, so the LLM never executes SQL.
+- Designed a provider port for OpenRouter, OpenAI, and mock completions, keeping vendor SDKs out of the chat service and HTTP routes.
+- Enforced API-key and JWT authentication with role-based tool access; viewers can chat but cannot list, preview, or count tables.
+- Added a bounded tool loop (default 5 rounds) with table allowlists, argument validation, and a JSON tool trace; persisted conversations and audit events in PostgreSQL without logging prompts or secrets.
+- Covered the Laravel HTTP contract with pytest plus a small eval set for tool choice and secret refusal.
+
 ---
 
 ## ENTERPRISE IDENTITY & ACCESS MANAGEMENT
@@ -98,11 +107,11 @@ Food-product and franchise platform with dynamic product management, customer co
 
 ## TECHNICAL SKILLS
 
-- **AI / LLM:** OpenClaw, Multi-Agent LLM, Telegram Bots, OpenRouter, Tool Use, Prompt Engineering, OCR / Vision Models, Model Fallback
-- **Backend:** Laravel, PHP, .NET, RESTful APIs, MySQL, PostgreSQL, Authentication / Authorization, Composer
+- **AI / LLM:** OpenClaw, Multi-Agent LLM, Telegram Bots, OpenRouter, Tool Use, LLM Tool Calling, Prompt Engineering, OCR / Vision Models, Model Fallback
+- **Backend:** Laravel, PHP, .NET, Python, FastAPI, Pydantic, asyncpg, HTTPX, OpenAPI, RESTful APIs, MySQL, PostgreSQL, Authentication / Authorization, Composer, pytest, Ruff
 - **Frontend:** Vue.js, JavaScript ES6+, Vuex, HTML5, CSS3 / SASS / SCSS, Vuetify, Bootstrap, Vite, Webpack, WPF
 - **Mobile:** React Native, Mobile Self-Service Apps, Google Play Store Publishing, Mobile WebView Integration
-- **Identity & Access Management:** Active Directory, OTP Verification, API Key Management, Audit Logging, Rate Limiting, Domain Controller Failover
+- **Identity & Access Management:** Active Directory, JWT, RBAC, OTP Verification, API Key Management, Audit Logging, Rate Limiting, Domain Controller Failover
 - **DevOps / Systems:** Docker, Docker Compose, Linux VPS, Windows Server, Git, GitHub, NPM, DNS, SSL/TLS, Production Deployment, Server Troubleshooting
 - **APIs / Services:** Google Workspace APIs, Gmail API, Calendar API, Drive API, OAuth, Google Maps, GPS, Email/SMS, Third-Party APIs
 
