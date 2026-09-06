@@ -25,12 +25,13 @@ README.md
 2. About
 3. Core Expertise
 4. Experience
-5. AI & Automation (OpenClaw Agent)
-6. Identity & Access (Active Directory Self-Service Platform)
-7. Projects
-8. Skills
-9. Education
-10. Contact
+5. AI Platform (OpenClaw Agent)
+6. AI Service (CPB AI Service — FastAPI backend)
+7. Identity & Access (Active Directory Self-Service Platform)
+8. Projects
+9. Skills
+10. Education
+11. Contact
 
 ## Features
 
